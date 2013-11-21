@@ -24,7 +24,7 @@ We have a **permanent free version** and premium options.
 
 ### Getting Started ###
 
-a)	**After setup and installation** (link to the Documentation for this here), **Contact Form 7 Integrations** will hook into your existing Contact Form 7 plugin installation with a new module appearing within your Contact Form 7 settings.
+a)	**After setup and installation** ([Documentation](http://help.contactus.com/hc/en-us/sections/200219188-Contact-Form-7-Integrations-Plugin-by-ContactUs-com "Contact Form 7 Integrations Documentation")), **Contact Form 7 Integrations** will hook into your existing Contact Form 7 plugin installation with a new module appearing within your Contact Form 7 settings.
  
 b)	From this new module, you’ll **map your form fields** between Contact Form 7 and ContactUs.com with a simple mapping tool.
 
