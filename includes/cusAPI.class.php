@@ -73,12 +73,10 @@ class cUsComAPI_Cloud {
             $strCURLOPT .= '&Form_Type=post';
             $strCURLOPT .= '&Website='.esc_url(trim($postData['website']));;
             $strCURLOPT .= '&IP_Address='.$this->getIP();
-            //$strCURLOPT .= '&Template_Desktop_Form='.trim($postData['Template_Desktop_Form']);
-            //$strCURLOPT .= '&Template_Desktop_Tab='.trim($postData['Template_Desktop_Tab']);
             $strCURLOPT .= '&Auto_Activate=1';
             $strCURLOPT .= '&API_Credentials=1';
-            //$strCURLOPT .= '&Promotion_Code=WP';
-            $strCURLOPT .= '&Version=cf7extension|0.4.1';
+            $strCURLOPT .= '&Promotion_Code=CF7i';
+            $strCURLOPT .= '&Version=cf7integrations|1.0b';
             
             //echo $strCURLOPT; exit;
 
@@ -356,9 +354,7 @@ class cUsComAPI_Cloud {
         delete_option( 'cUsCloud_FORM_settings' );
         delete_option( 'cUsCloud_settings_step1' );
         delete_option( 'cUsCloud_settings_form_key' );
-        delete_option( 'contactus_settings_inlinepages' );
         delete_option( 'cUsCloud_settings_inlinepages' );
-        delete_option( 'contactus_settings_tabpages' );
         delete_option( 'cUsCloud_settings_tabpages' );
         delete_option( 'cUsCloud_settings_userCredentials' );
         

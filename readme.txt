@@ -178,6 +178,11 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Screenshots ==
 
+1. Mapping your Contact Form 7 fields
+2. Third Party Integration Tools
+3. How to enable a POST form
+4. Welcome screen
+
 
 == Changelog ==
 
