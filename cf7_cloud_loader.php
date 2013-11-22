@@ -21,7 +21,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	  'Full_Name'				=> 	'Full Name',
 	  'IP_Address'				=> 	'IP address',
 	  'Company_Name'			=>	'Company Name',
-	  'Seconday_Phone'			=>	'Secondary Phone',
+      'Secondary_Phone'			=>	'Secondary Phone',
 	  'Address'					=>	'Address',
 	  'Address2'				=>	'Address 2',
 	  'City'					=>	'City',
@@ -852,18 +852,18 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			        $ch = curl_init();
 			
 			        $strCURLOPT  = 'https://api.contactus.com/api2.php?';
-			        // $strCURLOPT  = 'http://admin.contactus.com/api2.php?';
+			        //$strCURLOPT  = 'http://test.contactus.com/api2.php?';
 			        
 			        $thekey 		= get_option('cUsCloud_settings_form_key');
 			        $credentials 	= get_option('cUsCloud_settings_userCredentials');
-
+                   
 					$strCURLOPT .= 'API_Account='.$credentials['API_Account']; // constants defined in config.php
 			        $strCURLOPT .= '&API_Key='.$credentials['API_Key']; // constants defined in config.php
 			        $strCURLOPT .= '&API_Action=postSubmitLead';
 					$strCURLOPT .= '&Form_Key='.$thekey.'&'; // constants defined in config.php
 
 					$strCURLOPT = trim($strCURLOPT.$CU_string);
-					//echo $strCURLOPT; exit;
+					echo $strCURLOPT; exit;
 					
 					// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 			        curl_setopt($ch, CURLOPT_URL, $strCURLOPT );
