@@ -863,7 +863,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					$strCURLOPT .= '&Form_Key='.$thekey.'&'; // constants defined in config.php
 
 					$strCURLOPT = trim($strCURLOPT.$CU_string);
-					echo $strCURLOPT; exit;
+					//echo $strCURLOPT; exit;
 					
 					// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 			        curl_setopt($ch, CURLOPT_URL, $strCURLOPT );
