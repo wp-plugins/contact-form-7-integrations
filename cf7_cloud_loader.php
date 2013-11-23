@@ -21,6 +21,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	  'Full_Name'				=> 	'Full Name',
 	  'IP_Address'				=> 	'IP address',
 	  'Company_Name'			=>	'Company Name',
+      'Primary_Phone'			=>	'Primary Phone',
       'Secondary_Phone'			=>	'Secondary Phone',
 	  'Address'					=>	'Address',
 	  'Address2'				=>	'Address 2',
