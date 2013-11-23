@@ -191,5 +191,5 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 First version of Contact Form 7 Integrations available to WordPress community.
 
 = 1.0.1b =
-Added primary phone field. This upgrade will ad a primary phone field.
+This update added primary phone as a mappable field.
 

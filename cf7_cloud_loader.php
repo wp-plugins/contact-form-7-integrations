@@ -3,9 +3,10 @@
  * Initialization Class for CF7 Integrations 
  * Company 		: ContactUs.com
  * Programmer	: Estuardo Bengoechea
- * Updated  	: 20131114
+ * Updated  	: 20131122
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
+
 
 class CF7_cloud_loader extends CF7_cloud_interface {
 
