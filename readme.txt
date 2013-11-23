@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.0 Beta
+Stable tag: 1.0.1 Beta
 Requires at least: 3.5
 Tested up to: 3.7.1
 Donate link:
@@ -190,6 +190,6 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 = 1.0b =
 First version of Contact Form 7 Integrations available to WordPress community.
 
-== Upgrade Notice ==
-
+= 1.0.1b =
+Added primary phone field. This upgrade will ad a primary phone field.
 
