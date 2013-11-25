@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ### Contact Form 7 Integrations | ContactUs.com ###
 
-Contact Form 7 Integrations is an extension for the popular [Contact Form 7 plugin](http://wordpress.org/plugins/contact-form-7/ "Go to Contact Form 7 plugin").  Our plugin is by ContactUs.com, and not affiliated with the Contact Form 7 plugin developer (although we think he's awesome)." 
+Contact Form 7 Integrations is an extension for the popular [Contact Form 7 plugin](http://wordpress.org/plugins/contact-form-7/ "Go to Contact Form 7 plugin").  Our plugin is by ContactUs.com, and not affiliated with the Contact Form 7 plugin developer (although we think he's awesome).
 
 This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
 
@@ -190,10 +190,15 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
-= 1.0b =
+= 1.0.1 beta =
+
+This update added primary phone as a mappable field 
+
+= 1.0 beta =
+
 First version of Contact Form 7 Integrations available to WordPress community.
-= 1.0.1b =
-Added primary phone field. 
+
 == Upgrade Notice ==
+
 This upgrade will ad a primary phone field.
 
