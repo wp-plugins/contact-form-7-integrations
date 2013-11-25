@@ -1,10 +1,10 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.0.1 Beta
+Stable tag: 1.0 Beta
 Requires at least: 3.5
 Tested up to: 3.7.1
 Donate link:
-Tags: Contact Form 7, Contact 7 Database, Contact Form 7 Analytics, Contact Form 7 API, Contact Form Database, Contact Form 7 CRM, Contact Form 7 Extension, Contact Form 7 Integration, Contact Form 7 By Contactus.Com, Contact Form, CRM, Database, E-Mail Delivery Integrations, E-Mail Signup Form, Google Docs, Zoho, AWeber, Constant Contact, iContact, ZenDesk, MailChimp, Vertical Response, SendGrid, Emma, Sendy, GetResponse, ActiveCampaign, pipedrive, Highrise, Capsule, Tactile CRM, Google Contacts, SugarCRM, Hubspot, Lead Management
+Tags: Contact Form 7, Contact 7 Database, Contact Form 7 Analytics, Contact Form 7 API, Contact Form Database, Contact Form 7 CRM, Contact Form 7 Extension, Contact Form 7 Integration, Contact Form 7 By Contactus.Com, Contact Form, CRM, Database, E-Mail Delivery Integrations, E-Mail Signup Form, Google Docs, Zoho, AWeber, Constant Contact, iContact, ZenDesk, MailChimp, Vertical Response, SendGrid, Emma, Sendy, GetResponse, ActiveCampaign, pipedrive, Highrise, Capsule, Tactile CRM, Google Contacts, SugarCRM, Hubspot, Lead Management, CF7 addon, CF7 integration,
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ### Contact Form 7 Integrations | ContactUs.com ###
 
-Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
+Contact Form 7 Integrations is an extension for the popular [Contact Form 7 plugin](http://wordpress.org/plugins/contact-form-7/ "Go to Contact Form 7 plugin").  Our plugin is by ContactUs.com, and not affiliated with the Contact Form 7 plugin developer (although we think he's awesome)." 
+
+This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
 
 This plugin extension is built for professional websites using Contact Form 7 and manages form submissions and leads generated from your Contact Form 7 forms. Contact Form 7 Integrations will:
 
@@ -189,7 +191,8 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 = 1.0b =
 First version of Contact Form 7 Integrations available to WordPress community.
-
 = 1.0.1b =
-This update added primary phone as a mappable field.
+Added primary phone field. 
+== Upgrade Notice ==
+This upgrade will ad a primary phone field.
 
