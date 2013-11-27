@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.0.1 Beta
+Stable tag: 1.0.2 Beta
 Requires at least: 3.5
 Tested up to: 3.7.1
 Donate link:
@@ -190,6 +190,10 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
+= 1.0.2 beta =
+
+This update added password validation method.
+
 = 1.0.1 beta =
 
 This update added primary phone as a mappable field 
@@ -200,5 +204,5 @@ First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
 
-This upgrade will ad a primary phone field.
+
 

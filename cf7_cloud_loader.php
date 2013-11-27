@@ -12,7 +12,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
 	private $cf7_cloud_db_version		= 	'0.1'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.0 Beta';
+	private $cf7_cloud_version			= 	'1.0.2 Beta';
 	
 	// create here the list of possible fields for contactUs.com API calls
 	private $CU_API_fields	=	array(

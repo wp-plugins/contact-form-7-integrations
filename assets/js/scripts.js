@@ -73,6 +73,10 @@
                cUsCloud_myjq('.advice_notice').html('Check your password must be equal in both fields.').slideToggle().delay(2000).fadeOut(2000);
                cUsCloud_myjq('#cUsCloud_pass1').focus();
                cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if(pass1.length < 8){
+               cUsCloud_myjq('.advice_notice').html('Password must be 8 characters or more!').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_pass1').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
            }else if( !cUsCloud_first_name.length){
                cUsCloud_myjq('.advice_notice').html('Your First Name is a required field').slideToggle().delay(2000).fadeOut(2000);
                cUsCloud_myjq('#cUsCloud_first_name').focus();
