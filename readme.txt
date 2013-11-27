@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.0 Beta
+Stable tag: 1.0.1 Beta
 Requires at least: 3.5
 Tested up to: 3.7.1
 Donate link:
@@ -11,8 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 ### Contact Form 7 Integrations | ContactUs.com ###
-
-Contact Form 7 Integrations is an extension for the popular [Contact Form 7 plugin](http://wordpress.org/plugins/contact-form-7/ "Go to Contact Form 7 plugin").  Our plugin is by ContactUs.com, and not affiliated with the Contact Form 7 plugin developer (although we think he's awesome).
+>**Important:**
+>This plugin is an **extension** to the popular Contact [Contact Form 7 plugin](http://wordpress.org/plugins/contact-form-7/ "Go to Contact form 7 plugin"). If you **don't** currently use Contact Form 7, then this plugin is not for you. **If you need a complete contact form solution, you can consider using the** [**Contact Form Plugin**](http://wordpress.org/plugins/contactuscom/ "Go to Contact Form by ContactUs.com plugin in wp.org"), also by ContactUs.com. 
 
 This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
 
