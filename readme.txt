@@ -34,7 +34,6 @@ c)	Once done, you’ll be able to manage your Contact Form 7 submission notifica
 
 After first downloading and installing the plugin, you’ll be prompted to create an account, which will give you free access to our integrated contact management app hosted by ContactUs.com. Our web app also has additional customization options for admins, and we’re always adding new features to make your lead generation and contact management efforts easier and more effective.
 
-
 ### User Support for Contact Form 7 Integrations ###
 
 We try to provide the best user support we can for our users.
@@ -113,12 +112,12 @@ With the Contact Form 7 Integrations plugin, ContactUs.com has built API integra
 *	SugarCRM
 *	Hubspot
 
-
 As you begin to use Contact Form 7 Integrations by ContactUs.com, please don’t hesitate to leave feedback directly on this WordPress plugin page, or send suggestions, comments or feedback **[here](http://help.contactus.com/hc/en-us/requests/new "Send feedback")** -- we’ll be planning future updates for this plugin and want to ensure that our community members have a say in our development priorities. 
 
 Learn more about ContactUs.com and our efforts to make smarter, more effective contact forms at our website. If you are a contact form 7 user, we would really appreciate any feedback on this Contact Form 7 ingetration plugin, as it is very new. 
 
 ### About ###
+
 Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactForm7 users to enhance their contact form capabilities with professional contact management built by ContactUs.com.  It easily integrates your CF7 forms with a free contact management database hosted on ContactUs.com. The plugin automatically saves form submission information with 21 predefined form fields for contact management (such as first name, last name, address, city, state or company). In addition, you can integrate custom fields that you’ve created on your Contact Form 7 forms into ContactUs.com using the CF7 Integrations extension. From within your ContactUs.com account, which you can create free within this plugin, you’ll be able to access contact management tools, get insightful web analytics on your submissions, manage where submissions are sent, post your submissions to popular third-party software (like MailChimp or Google Docs, se the list above), track your lead sources,  create and manage multiple forms. You can expect great support from our small but dedicated team, along with great documentation to get you going.  
 
 > ### Contact Form 7 Integrations 
@@ -150,7 +149,6 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 * Step Four 	Map Your Fields between Contact Form 7 and ContactUs.com
 * Step Five 	Track Your Results inside ContactUs.com
 
-
 == Frequently Asked Questions ==
 
 ### Contact Form 7 Integrations FAQ ###
@@ -179,7 +177,6 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 * Not at the moment. Because the plugin can integrate your Contact Form 7 with over 20 contact management and email marketing tools, you can export the consolidated data using the third party tools. ContactUs.com is working on a simple data export tool of its own, but there is no release date available.
 
-
 == Screenshots ==
 
 1. Mapping your Contact Form 7 fields
@@ -187,14 +184,13 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 3. How to enable a POST form
 4. Welcome screen
 
-
 == Changelog ==
 
 = 1.1 =
 
-* Plugin prompts users to install CF7 if its not currently installed. 
-* Added quick installation options for CF7.
-* Added link to view stats.
+Plugin prompts users to install CF7 if its not currently installed. 
+Added quick installation options for CF7.
+Added link to view stats.
 
 = 1.0.2 beta =
 
