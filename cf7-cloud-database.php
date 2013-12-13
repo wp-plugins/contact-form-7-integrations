@@ -5,8 +5,8 @@
 * Description:Database, analytics and software integrations for Contact Form 7
 * Author: http://www.contactus.com
 * Author URI: http://www.contactus.com/
-* Version: 1.0.2 Beta
-* Stable tag: 1.0.2 BETA
+* Version: 1.1
+* Stable tag: 1.1
 * License: GPLv2 or later
 **/
 

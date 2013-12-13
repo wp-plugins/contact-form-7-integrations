@@ -6,13 +6,14 @@
  * Updated  	: 20131122
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
+require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
 
 
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'0.1'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.0.2 Beta';
+	private $cf7_cloud_db_version		= 	'1.1'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.1';
 	
 	// create here the list of possible fields for contactUs.com API calls
 	private $CU_API_fields	=	array(
@@ -78,7 +79,89 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			
 			add_action('admin_print_scripts', array(&$this, 'Load_scripts'));
 			add_action('admin_print_scripts', array(&$this, 'Load_styles'));
+			
+			add_action( 'tgmpa_register', array(&$this, 'my_plugin_register_required_plugins' ));
+			
+			
 	}
+	
+	
+	function my_plugin_register_required_plugins() {
+
+	/**
+	 * Array of plugin arrays. Required keys are name and slug.
+	 * If the source is NOT from the .org repo, then source is also required.
+	 */
+	$plugins = array(
+	/*
+		// This is an example of how to include a plugin pre-packaged with a theme
+		array(
+			'name'     				=> 'TGM Example Plugin', // The plugin name
+			'slug'     				=> 'tgm-example-plugin', // The plugin slug (typically the folder name)
+			'source'   				=> get_stylesheet_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source
+			'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
+			'version' 				=> '', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+			'force_activation' 		=> true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
+			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
+			'external_url' 			=> '', // If set, overrides default API URL and points to an external URL
+	),*/
+
+		// This is an example of how to include a plugin from the WordPress Plugin Repository
+		array(
+			'name' 		=> 'Contact Form 7',
+			'slug' 		=> 'Contact-Form-7',
+			'force_activation' 		=> true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
+			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
+			'required' 	=> true,
+		),
+
+	);
+
+	// Change this to your theme text domain, used for internationalising strings
+	$theme_text_domain = 'cf7-integrations';
+
+	/**
+	 * Array of configuration settings. Amend each line as needed.
+	 * If you want the default strings to be available under your own theme domain,
+	 * leave the strings uncommented.
+	 * Some of the strings are added into a sprintf, so see the comments at the
+	 * end of each line for what each argument will be.
+	 */
+	$config = array(
+		'domain'       		=> $theme_text_domain,         	// Text domain - likely want to be the same as your theme.
+		'default_path' 		=> '',                         	// Default absolute path to pre-packaged plugins
+		'parent_menu_slug' 	=> 'plugins.php', 				// Default parent menu slug
+		'parent_url_slug' 	=> 'plugins.php', 				// Default parent URL slug
+		'menu'         		=> 'install-required-plugins', 	// Menu slug
+		'has_notices'      	=> true,                       	// Show admin notices or not
+		'is_automatic'    	=> true,					   	// Automatically activate plugins after installation or not
+		'message' 			=> '',							// Message to output right before the plugins table
+		'strings'      		=> array(
+			'page_title'                       			=> __( 'Install Required Plugins', $theme_text_domain ),
+			'menu_title'                       			=> __( 'Install Plugins', $theme_text_domain ),
+			'installing'                       			=> __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
+			'oops'                             			=> __( 'Something went wrong with the plugin API.', $theme_text_domain ),
+			'notice_can_install_required'     			=> _n_noop( 'The Contact Form 7 Integrations plugin requires the following plugin: %1$s.', 'This Contact Form 7 Integrations plugin requires the following plugin: %1$s.' ), // %1$s = plugin name(s)
+			'notice_can_install_recommended'			=> _n_noop( 'This plugin recommends the following plugin: %1$s.', 'This plugin recommends the following plugin: %1$s.' ), // %1$s = plugin name(s)
+			'notice_cannot_install'  					=> _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
+			'notice_can_activate_required'    			=> _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
+			'notice_can_activate_recommended'			=> _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
+			'notice_cannot_activate' 					=> _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
+			'notice_ask_to_update' 						=> _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
+			'notice_cannot_update' 						=> _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
+			'install_link' 					  			=> _n_noop( 'Begin installing Contact Form 7', 'Begin installing plugins' ),
+			'activate_link' 				  			=> _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
+			'return'                           			=> __( 'Return to Required Plugins Installer', $theme_text_domain ),
+			'plugin_activated'                 			=> __( 'Plugin activated successfully.', $theme_text_domain ),
+			'complete' 									=> __( 'All plugins installed and activated successfully. %s', $theme_text_domain ), // %1$s = dashboard link
+			'nag_type'									=> 'updated' // Determines admin notice type - can only be 'updated' or 'error'
+		)
+	);
+
+	tgmpa( $plugins, $config );
+
+}
+
 
 	/**
 	 * This should create the setting button in plugin CF7 cloud database
@@ -552,17 +635,27 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				</table>
 				
 				<table class="cf7cloud_custom_fields_table" <?php echo ($is_active_form)?'style="display:block"':'style="display:none"'; ?>>
+					
+					<?php
+						// get api account and api key
+						$data = get_option('cUsCloud_settings_userCredentials');
+						//print_r($data);
+						$DF_API_Account = $data['API_Account'];
+						$DF_API_Key 	= $data['API_Key'];
+					?>
+					
 				      	  <tbody>
 				      	    <tr>
-				      	  	  <td colspan="3">When you’re finish mapping, remember to hit <img src="<?php echo plugins_url(); ?>/contact-form-7-integrations/assets/images/cf7_save_button.png" width="51" height="26" alt="Save button on upper right" title="Save button on upper right" style="display:inline-block; vertical-align:middle;" /> your Contact Form 7 settings! (Save button is located on upper right)<br /><br /></td>
+				      	  	  <td colspan="3">When you’re finish mapping, remember to hit <strong>Save</strong> your Contact Form 7 settings! (Save button is located on upper right)<br /><br /></td>
 				      	    </tr>
 							 <tr>
 				      	  	  <td colspan="3"><strong>What’s Next?</strong>
 								<p>Once saved, your ContactUs.com account is new connected with your Contact Form 7 form. Visit your ContactUs.com admin panel to:   </p>
 								<ul>
-								  <li><a href="#">Track Your Leads</a></li>
-								  <li><a href="#">View Your States</a></li>
-								  <li><a href="#">Integration 3rd Party Software</a></li>
+									
+								<li><a href="<?php echo plugins_url('includes/toAdmin.php?iframe&uE='.$DF_API_Account.'&uC='.$DF_API_Key, __FILE__) ?>" target="_blank" rel="toDash" class="deep_link_action">View Your Stats</a></li>
+								 <!-- <li><a href="#">View Your Stats</a></li>
+								  <li><a href="#">Integration 3rd Party Software</a></li> -->
 								</ul>			
 							  </td>
 				      	    </tr>

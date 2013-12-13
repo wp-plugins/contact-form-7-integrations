@@ -3,7 +3,7 @@ global $wpdb;
 
 // define a list of constants used along.
 define('CF7_CLOUD_PATH', realpath(dirname(__FILE__) ) );
-define('CF7_CLOUD_PLUGIN_VERSION', '1.0.2 Beta' );
+define('CF7_CLOUD_PLUGIN_VERSION', '1.1' );
 define('CF7_CLOUD_DATA', $wpdb->prefix.'cf7_cloud_data');
 
 define('ADMIN_AJAX_URL',  get_admin_url());

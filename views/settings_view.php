@@ -110,7 +110,11 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
  
   
   
-  echo('<p>You’re almost done. To continue the setup process, click the “Continue” button below to take you to your Contact Form 7 installation</p>');
+  echo('<p>You’re almost done. To continue the setup process, click the “Continue” button below to take you to your Contact Form 7 installation</p>
+  <p><strong>1)</strong> Go to Contact Form 7&#39;s admin panel and click on the forms you want to integrate to ContactUs.com</p>
+  <p><strong>2)</strong> Once you are editing your form, check the Turn On Contact Form 7 Integrations tab and click on the Map Fields button</p>
+  
+  ');
   
   
   echo('</p>

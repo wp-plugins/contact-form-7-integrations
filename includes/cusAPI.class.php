@@ -15,6 +15,7 @@
 class cUsComAPI_Cloud {
     
     var $v = '1.9';
+	var $enviroment = 'http://api.contactus.com/api2.php';
     
     public function cUsComAPI_Cloud(){
         $cUs_email = '';
@@ -29,9 +30,9 @@ class cUsComAPI_Cloud {
         $ch = curl_init();
 
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC00000bb19ec0c1dd1fe715ef23afa9cf';
-        $strCURLOPT .= '&API_Key=00000bb19ec0c1dd1fe715ef23afa9cf';
+        $strCURLOPT  = $this->enviroment;
+        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
         $strCURLOPT .= '&API_Action=getAPICredentials';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
         $strCURLOPT .= '&Password=' . trim($cUs_pass);
@@ -59,12 +60,9 @@ class cUsComAPI_Cloud {
 
             $ch = curl_init();
 
-            $strCURLOPT  = 'https://api.contactus.com/api2.php';
-            //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-            $strCURLOPT .= '?API_Account=AC00000bb19ec0c1dd1fe715ef23afa9cf';
-        	$strCURLOPT .= '&API_Key=00000bb19ec0c1dd1fe715ef23afa9cf';
-        	//$strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-        	//$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
+            $strCURLOPT  = $this->enviroment;
+            $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+    		$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
             $strCURLOPT .= '&API_Action=createSignupCustomer';
             $strCURLOPT .= '&First_Name='.trim($postData['fname']);
             $strCURLOPT .= '&Last_Name='.trim($postData['lname']);
@@ -99,10 +97,10 @@ class cUsComAPI_Cloud {
 
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC00000bb19ec0c1dd1fe715ef23afa9cf';
-        $strCURLOPT .= '&API_Key=00000bb19ec0c1dd1fe715ef23afa9cf';
+        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
         $strCURLOPT .= '&API_Action=verifyCustomerEmail';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
 
@@ -122,10 +120,10 @@ class cUsComAPI_Cloud {
         
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC00000bb19ec0c1dd1fe715ef23afa9cf';
-        $strCURLOPT .= '&API_Key=00000bb19ec0c1dd1fe715ef23afa9cf';
+        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
         $strCURLOPT .= '&API_Action=getTemplatesAndTabsAll';
         $strCURLOPT .= '&Form_Type=' . trim($formType);
         $strCURLOPT .= '&Selection_Type=' . trim($selType);
@@ -155,7 +153,7 @@ class cUsComAPI_Cloud {
         
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
         $strCURLOPT .= '?API_Account='.trim($cUs_API_Account);
         $strCURLOPT .= '&API_Key='.trim($cUs_API_Key);
@@ -179,7 +177,7 @@ class cUsComAPI_Cloud {
 
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
         $strCURLOPT .= '?API_Account='.trim($cUs_API_Account);
         $strCURLOPT .= '&API_Key='.trim($cUs_API_Key);
@@ -206,10 +204,10 @@ class cUsComAPI_Cloud {
 
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC00000bb19ec0c1dd1fe715ef23afa9cf';
-        $strCURLOPT .= '&API_Key=00000bb19ec0c1dd1fe715ef23afa9cf';
+        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
         $strCURLOPT .= '&API_Action=getFormKey';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
         $strCURLOPT .= '&Password=' . trim($cUs_pass);
@@ -233,7 +231,7 @@ class cUsComAPI_Cloud {
 
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
         $strCURLOPT .= '?API_Account='.trim($postData['API_Account']);
         $strCURLOPT .= '&API_Key='.trim($postData['API_Key']);
@@ -262,10 +260,10 @@ class cUsComAPI_Cloud {
 
         $ch = curl_init();
 
-        $strCURLOPT  = 'https://api.contactus.com/api2.php';
+        $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC00000bb19ec0c1dd1fe715ef23afa9cf';
-        $strCURLOPT .= '&API_Key=00000bb19ec0c1dd1fe715ef23afa9cf';
+        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
         $strCURLOPT .= '&API_Action=updateDeliveryOptions';
         $strCURLOPT .= '&Email=' . trim($postData['email']);
         $strCURLOPT .= '&Password=' . trim($postData['password']);
