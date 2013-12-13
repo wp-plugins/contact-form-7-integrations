@@ -196,7 +196,6 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 * Added quick installation options for CF7.
 * Added link to view stats.
 
-
 = 1.0.2 beta =
 
 This update added password validation method.
