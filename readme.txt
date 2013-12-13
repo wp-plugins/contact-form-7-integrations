@@ -1,8 +1,8 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.0.2 Beta
+Stable tag: 1.1 
 Requires at least: 3.5
-Tested up to: 3.7.1
+Tested up to: 3.8
 Donate link:
 Tags: Contact Form 7, Contact 7 Database, Contact Form 7 Analytics, Contact Form 7 API, Contact Form Database, Contact Form 7 CRM, Contact Form 7 Extension, Contact Form 7 Integration, Contact Form 7 By Contactus.Com, Contact Form, CRM, Database, E-Mail Delivery Integrations, E-Mail Signup Form, Google Docs, Zoho, AWeber, Constant Contact, iContact, ZenDesk, MailChimp, Vertical Response, SendGrid, Emma, Sendy, GetResponse, ActiveCampaign, pipedrive, Highrise, Capsule, Tactile CRM, Google Contacts, SugarCRM, Hubspot, Lead Management, CF7 addon, CF7 integration,
 License: GPLv2 or later
@@ -190,6 +190,13 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
+= 1.1 =
+
+* Plugin prompts users to install CF7 if its not currently installed. 
+* Added quick installation options for CF7.
+* Added link to view stats.
+
+
 = 1.0.2 beta =
 
 This update added password validation method.
@@ -203,6 +210,10 @@ This update added primary phone as a mappable field
 First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
+
+= 1.1 =
+
+Added plugin functionality
 
 
 
