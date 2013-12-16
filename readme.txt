@@ -203,4 +203,4 @@ First version of Contact Form 7 Integrations available to WordPress community.
 == Upgrade Notice ==
 
 = 1.1 =
-Added plugin functionality
+Added plugin functionality now allows users to install Contact Form 7 from within Contact Form 7 Integrations plugin.
