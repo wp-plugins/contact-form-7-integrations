@@ -184,6 +184,7 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 3. How to enable a POST form
 4. Welcome screen
 
+
 == Changelog ==
 
 = 1.1 =
@@ -204,6 +205,5 @@ First version of Contact Form 7 Integrations available to WordPress community.
 
 1.1
 Added plugin functionality
-
 
 
