@@ -26,7 +26,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-error_reporting(E_ERROR);
+//error_reporting(E_ERROR);
 
 // configuration directives
 require_once(dirname(__FILE__).'/config.php');
