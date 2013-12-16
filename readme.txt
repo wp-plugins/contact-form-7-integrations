@@ -129,7 +129,7 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 > * [Twitter](https://twitter.com/ContactUsCom)
 > * [Find tutorials on our Youtube channel](http://www.youtube.com/user/ContactUsCom)
 
-== Support ==
+**Support**
 
 You can find support on the ContactUs.com Help page at http://help.contactus.com. Specific instructions on how to implement Contact Form 7 Integrations.
 
@@ -184,7 +184,6 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 3. How to enable a POST form
 4. Welcome screen
 
-
 == Changelog ==
 
 = 1.1 =
@@ -205,5 +204,3 @@ First version of Contact Form 7 Integrations available to WordPress community.
 
 1.1
 Added plugin functionality
-
-
