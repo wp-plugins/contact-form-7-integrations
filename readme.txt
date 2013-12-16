@@ -129,7 +129,7 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 > * [Twitter](https://twitter.com/ContactUsCom)
 > * [Find tutorials on our Youtube channel](http://www.youtube.com/user/ContactUsCom)
 
-**Support**
+== Support ==
 
 You can find support on the ContactUs.com Help page at http://help.contactus.com. Specific instructions on how to implement Contact Form 7 Integrations.
 
