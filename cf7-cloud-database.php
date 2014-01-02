@@ -5,8 +5,8 @@
 * Description:Database, analytics and software integrations for Contact Form 7
 * Author: http://www.contactus.com
 * Author URI: http://www.contactus.com/
-* Version: 1.1
-* Stable tag: 1.1
+* Version: 1.2
+* Stable tag: 1.2
 * License: GPLv2 or later
 **/
 
@@ -26,7 +26,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-//error_reporting(E_ERROR);
+error_reporting(E_ERROR);
 
 // configuration directives
 require_once(dirname(__FILE__).'/config.php');

@@ -2,8 +2,8 @@
 /**
  * Initialization Class for CF7 Integrations 
  * Company 		: ContactUs.com
- * Programmer	: Estuardo Bengoechea
- * Updated  	: 20131122
+ * Programmer	: ContactUs Dev Team
+ * Updated  	: 20131223
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
 require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
@@ -12,15 +12,20 @@ require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'1.1'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.1';
-	
-	// create here the list of possible fields for contactUs.com API calls
-	private $CU_API_fields	=	array(
-	  'Message' 				=> 	'Message',
+	private $cf7_cloud_db_version		= 	'1.2'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.2';
+		
+	/*
+	 *
 	  'First_Name'				=> 	'First Name',
 	  'Last_Name'				=> 	'Last Name',
 	  'Full_Name'				=> 	'Full Name',
+	 *
+	 */
+
+	// create here the list of possible fields for contactUs.com API calls
+	private $CU_API_fields	=	array(
+	  'Message' 				=> 	'Message',
 	  'IP_Address'				=> 	'IP address',
 	  'Company_Name'			=>	'Company Name',
       'Primary_Phone'			=>	'Primary Phone',
@@ -141,7 +146,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			'menu_title'                       			=> __( 'Install Plugins', $theme_text_domain ),
 			'installing'                       			=> __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
 			'oops'                             			=> __( 'Something went wrong with the plugin API.', $theme_text_domain ),
-			'notice_can_install_required'     			=> _n_noop( 'The Contact Form 7 Integrations plugin requires the following plugin: %1$s.', 'This Contact Form 7 Integrations plugin requires the following plugin: %1$s.' ), // %1$s = plugin name(s)
+			'notice_can_install_required'     			=> _n_noop( 'The Contact Form 7 Integrations plugin requires %1$s plugin.  If you already have Contact Form 7 installed, please dismiss this notice.', 'This Contact Form 7 Integrations plugin requires %1$s plugin.  If you already have Contact Form 7 installed, please dismiss this notice.' ), // %1$s = plugin name(s)
 			'notice_can_install_recommended'			=> _n_noop( 'This plugin recommends the following plugin: %1$s.', 'This plugin recommends the following plugin: %1$s.' ), // %1$s = plugin name(s)
 			'notice_cannot_install'  					=> _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
 			'notice_can_activate_required'    			=> _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
@@ -215,7 +220,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		global $wpdb;
 		
 	  /******************************** START PLUGIN SQL *************************************/
-
 		/*$sql= "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."cf7_cloud_database` (
 			  `field_id` bigint(22) unsigned NOT NULL AUTO_INCREMENT,
 			  `field_name` varchar(100) NOT NULL,
@@ -256,6 +260,9 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				delete_option('cf7_cloud_db_version');
 				delete_option('cf7_cloud_version');
 				delete_option('cf7_cloud_database_active');  // this is to know if user has signup/login to the system
+				
+				// delete dependant plugins flag when deactivate so it is shown again on activate
+				delete_user_meta( get_current_user_id(), 'tgmpa_dismissed_notice' );
 
 		}
 		
@@ -392,7 +399,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				jQuery('#cf7cloud_custom_fields_link').on('click', function() {
 				  var actual_value = parseInt(jQuery('#trcount').val());
 				  jQuery('#trcount').val(parseInt(actual_value+1));
-			      jQuery('.cf7cloud_custom_fields_table tr:last').after(new_tr(jQuery('#trcount').val()));
+			      jQuery('.cf7cloud_custom_fields_table tr:last').after( new_tr(jQuery('#trcount').val()) );
 			    });
 
 			    // function to validate email address
@@ -412,7 +419,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				$the_cf7_fields = get_option('CU_cf7_cloud_mapped_fields_'.$_GET['post']);
 				$is_active_form = get_option('CU_cf7cloud_database_form_'.$_GET['post'].'_active');
 				
-				//print_r($the_cf7_fields);
+				//print_r($the_data);
 				
 				$cred = get_option('cUsCloud_settings_userCredentials');
 				$cf7_cloud_activated = get_option('cf7_cloud_database_active');
@@ -496,7 +503,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 							  	   echo('<option value="'.$value.'" selected="selected">'.$value.'</option>');
 								else
 								   echo('<option value="'.$value.'">'.$value.'</option>');
-								
 							  }
 							
 							}
@@ -640,8 +646,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 						// get api account and api key
 						$data = get_option('cUsCloud_settings_userCredentials');
 						//print_r($data);
-						$DF_API_Account = $data['API_Account'];
-						$DF_API_Key 	= $data['API_Key'];
+						$CF7i_API_Account = $data['API_Account'];
+						$CF7i_API_Key 	= $data['API_Key'];
 					?>
 					
 				      	  <tbody>
@@ -653,7 +659,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 								<p>Once saved, your ContactUs.com account is new connected with your Contact Form 7 form. Visit your ContactUs.com admin panel to:   </p>
 								<ul>
 									
-								<li><a href="<?php echo plugins_url('includes/toAdmin.php?iframe&uE='.$DF_API_Account.'&uC='.$DF_API_Key, __FILE__) ?>" target="_blank" rel="toDash" class="deep_link_action">View Your Stats</a></li>
+								<li><a href="<?php echo plugins_url('includes/toAdmin.php?iframe&uE='.$CF7i_API_Account.'&uC='.$CF7i_API_Key, __FILE__) ?>" target="_blank" rel="toDash" class="deep_link_action">View Your Stats</a></li>
 								 <!-- <li><a href="#">View Your Stats</a></li>
 								  <li><a href="#">Integration 3rd Party Software</a></li> -->
 								</ul>			
@@ -905,8 +911,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		  
 		  // get the option for this specific form and see which fields to send to CU API
 		  $cf7cloud_data = get_option('CU_cf7cloud_database_data_'.$wpcf7->posted_data['_wpcf7']);
-		  //print( $wpcf7->posted_data );
-		  //exit;
+		  //print_r( $wpcf7->posted_data ); exit;
 		  
 		  // get if this form is active to send data to admin.contactus.com
 		  $is_active = get_option('CU_cf7cloud_database_form_'.$wpcf7->posted_data['_wpcf7'].'_active');
@@ -933,9 +938,21 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 
 					// now check for custom fields.
 					foreach( $cf7cloud_data['customs'] as $key => $value ){
-							if( array_key_exists($key, $wpcf7->posted_data) ){
-								$CU_string .= $value."=".urlencode($wpcf7->posted_data[$key]).'&';
-							}
+						// check if array of values comming or any other array type
+						if( is_array($wpcf7->posted_data[$key]) ){
+								
+							// as array unify it as string and associate it to custom field
+							foreach( $wpcf7->posted_data[$key] as $akey => $avalue )
+								$CU_array .= $avalue.' / ';
+								
+							$CU_string .= $value."=".urlencode($CU_array).'&';
+							
+							$CU_array = NULL; // clear array to avoid duplicates in foreach association
+							
+						}elseif( array_key_exists($key, $wpcf7->posted_data) ){
+							$CU_string .= $value."=".urlencode($wpcf7->posted_data[$key]).'&';
+						}
+									
 					}
 					
 					//echo $CU_string; exit;
@@ -958,7 +975,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					$strCURLOPT .= '&Form_Key='.$thekey.'&'; // constants defined in config.php
 
 					$strCURLOPT = trim($strCURLOPT.$CU_string);
-					//echo $strCURLOPT; exit;
 					
 					// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 			        curl_setopt($ch, CURLOPT_URL, $strCURLOPT );

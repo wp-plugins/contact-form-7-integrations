@@ -43,17 +43,15 @@ function cUsCloud_loginAlreadyUser_callback() {
                         $postData = array( 'email' => $cUs_email, 'credential'    => $cUs_pass);
                         update_option('cUsCloud_settings_userData', $postData);
                         
-                        foreach ($cUs_jsonKeys as $oForms => $oForm) {
-                            if ($oForms !='status' && $oForm->form_type == 7 && $oForm->default == 1){ //GET DEFAULT POST FORM KEY
+                        foreach ($cUs_jsonKeys->data as $oForms => $oForm) {
+                            if ( $oForm->form_type == 'post' && $oForm->default == 1 ){ //GET DEFAULT POST FORM KEY
                                $defaultFormKey = $oForm->form_key;
                             }
                         }
-
-                        //echo( $defaultFormKey ); exit;
                             
                         // check if form with Type 7 is available
                         if( !isset($defaultFormKey) || !strlen($defaultFormKey) ){
-                            echo 2; // no form of type 7 is available
+                            echo 2; // no form of type POST/7 is available
                         }else{
                             
                             $aryFormOptions = array('tab_user' => 1,'cus_version' => 'tab'); //DEFAULT SETTINGS / FIRST TIME
