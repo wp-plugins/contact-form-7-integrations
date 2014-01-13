@@ -208,6 +208,7 @@
                             case '2':
                             	
                             	cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox.close();
+                            	cUsCloud_myjq(".img_loader").css({display:'none'});
                             	
                             	// alert(data);
                                 message = 'Seems like you already have one Contactus.com Account, Please Login below!';
