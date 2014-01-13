@@ -261,7 +261,7 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 						<li><span>Customer Service</span></li>
 						<li><span>Finance</span></li>
 						<li><span>Food / Beverage / Hospitality</span></li>
-						<li><span>Human Resoucers</span></li>
+						<li><span>Human Resources</span></li>
 						<li><span>IT</span></li>
 						<li><span>Legal</span></li>
 						<li><span>Logistics / Moving</span></li>
