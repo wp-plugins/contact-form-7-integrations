@@ -43,6 +43,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 			
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -119,6 +121,8 @@ class cUsComAPI_Cloud {
 			  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 			));
 			
+			curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+			
             curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -144,6 +148,14 @@ class cUsComAPI_Cloud {
     	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
         $strCURLOPT .= '&API_Action=verifyCustomerEmail';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
+		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -174,6 +186,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -214,6 +228,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
 		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -243,6 +259,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -277,6 +295,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -313,6 +333,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
 		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -346,6 +368,8 @@ class cUsComAPI_Cloud {
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
 		));
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
