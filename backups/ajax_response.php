@@ -5,6 +5,23 @@
 * @since 0.1
 * @returns Array of input names
 */
+add_action('wp_ajax__get_cf7_inputs', '_get_cf7_inputs_callback');
+function _get_cf7_inputs_callback(){
+
+	$cf7_shortcodes = preg_match_all( '#\[[text|select|checkbox|radio|tel|email]\s*.*?\]#s', $_REQUEST['cf7_form'], $matches );
+	$the_values = Array();
+	
+	foreach( $matches[0] as $key => $value ){
+		$the_values[] = explode(" ", $value);
+		$the_names[$key] = str_replace(']', '', $the_values[$key][1]);
+	}
+	
+	array_pop( $the_names );
+	
+	print_r( json_encode($the_names) );
+	exit;
+
+}
 
 // loginAlreadyUser handler function...
 add_action('wp_ajax_cUsCloud_loginAlreadyUser', 'cUsCloud_loginAlreadyUser_callback');
@@ -43,15 +60,17 @@ function cUsCloud_loginAlreadyUser_callback() {
                         $postData = array( 'email' => $cUs_email, 'credential'    => $cUs_pass);
                         update_option('cUsCloud_settings_userData', $postData);
                         
-                        foreach ($cUs_jsonKeys->data as $oForms => $oForm) {
-                            if ( $oForm->form_type == 'post' && $oForm->default == 1 ){ //GET DEFAULT POST FORM KEY
+                        foreach ($cUs_jsonKeys as $oForms => $oForm) {
+                            if ($oForms !='status' && $oForm->form_type == 7 && $oForm->default == 1){ //GET DEFAULT POST FORM KEY
                                $defaultFormKey = $oForm->form_key;
                             }
                         }
+
+                        //echo( $defaultFormKey ); exit;
                             
                         // check if form with Type 7 is available
                         if( !isset($defaultFormKey) || !strlen($defaultFormKey) ){
-                            echo 2; // no form of type POST/7 is available
+                            echo 2; // no form of type 7 is available
                         }else{
                             
                             $aryFormOptions = array('tab_user' => 1,'cus_version' => 'tab'); //DEFAULT SETTINGS / FIRST TIME
@@ -104,11 +123,7 @@ function cUsCloud_verifyCustomerEmail_callback() {
             'fname' => $_REQUEST['fName'],
             'lname' => $_REQUEST['lName'],
             'email' => $_REQUEST['Email'],
-            'website' => $_REQUEST['website'],
-            'password' => $_REQUEST['password'],
-			'Main_Category' => $_REQUEST['CU_category'],
-            'Sub_Category' => $_REQUEST['CU_subcategory'],
-            'Goals' => $_REQUEST['CU_goals']
+            'website' => $_REQUEST['website']
         );
 
         $cUsCloud_API_EmailResult = $cUsCloud_api->verifyCustomerEmail($_REQUEST['Email']); //EMAIL VERIFICATION
@@ -166,14 +181,7 @@ function cUsCloud_createCustomer_callback() {
             'fname' => $cUsCloud_userData['fname'],
             'lname' => $cUsCloud_userData['lname'],
             'email' => $cUsCloud_userData['email'],
-            'website' => $cUsCloud_userData['website'],
-            'password' => $cUsCloud_userData['password'],
-			'Main_Category' => $cUsCloud_userData['Main_Category'],
-			'Sub_Category' => $cUsCloud_userData['Sub_Category'],
-			'Goals' => $cUsCloud_userData['Goals']
-			
-			
-			// EBE modified
+            'website' => $cUsCloud_userData['website']  // EBE modified
             /*'Template_Desktop_Form' => $_REQUEST['Template_Desktop_Form'],
             'Template_Desktop_Tab' => $_REQUEST['Template_Desktop_Tab']*/
         );

@@ -48,12 +48,10 @@
             return str;
         }
 
-
-    //Try to register this new user.
-    try{
-        cUsCloud_myjq('#cUsCloud_CreateCustomer').click(function() {
-            
-            var postData = {};
+	
+	cUsCloud_myjq("#cUsCloud_CreateCustomer").on('click', function(){
+	
+    	 var postData = {};
 
             var cUsCloud_first_name = cUsCloud_myjq('#cUsCloud_first_name').val();
             var cUsCloud_last_name = cUsCloud_myjq('#cUsCloud_last_name').val();
@@ -102,9 +100,95 @@
                cUsCloud_myjq('#cUsCloud_web').focus();
                cUsCloud_myjq('.loadingMessage').fadeOut();
            }else{
+			   cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox({inline:true, maxWidth:'100%', minHeight:'430px', scrolling:false });	
+		   }
+    });
+	
+	
+	
+	
+	
+    //Try to register this new user.
+    try{
+        cUsCloud_myjq('.btn-skip').click(function() {
+            
+            var postData = {};
+
+            var cUsCloud_first_name = cUsCloud_myjq('#cUsCloud_first_name').val();
+            var cUsCloud_last_name = cUsCloud_myjq('#cUsCloud_last_name').val();
+            var cUsCloud_email = cUsCloud_myjq('#cUsCloud_email').val();
+            var cUsCloud_emailValid = checkRegexp( cUsCloud_email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. sergio@jquery.com" );
+            var cUsCloud_web = cUsCloud_myjq('#cUsCloud_web').val();
+            var cUsCloud_webValid = checkURL(cUsCloud_web);
+
+            // get the passwords
+            var pass1 = cUsCloud_myjq('#cUsCloud_pass1').val();
+            var pass2 = cUsCloud_myjq('#cUsCloud_pass2').val();
+            
+            
+			
+			/* Main Categories, Sub Categories and goals below */
+			cUsCloud_myjq(".img_loader").css({display:'inline-block'});
+           
+		   // this are optional so do not passcheck
+		   var CU_category 		= 	cUsCloud_myjq('#CU_category').val();
+		   var CU_subcategory 	= 	cUsCloud_myjq('#CU_subcategory').val();
+		   
+		   // check if other goal is set
+		   /*if( cUsCloud_myjq('#other_goal').val() != '' ){
+				var CU_goals = cUsCloud_myjq('#other_goal').val();
+		   }else{*/
+				
+				var new_goals = '';
+				var CU_goals = cUsCloud_myjq('input[name="the_goals[]"]').each(function(){
+					new_goals += cUsCloud_myjq(this).val()+',';	
+				});
+				
+				if( jQuery('#other_goal').val() )
+					new_goals += jQuery('#other_goal').val()+',';	
+				
+				
+		   /*}*/
+			
+			
+            cUsCloud_myjq('.loadingMessage').show();
+           
+           if( String(pass1) != String(pass2) ){
+               cUsCloud_myjq('.advice_notice').html('Check your password must be equal in both fields.').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_pass1').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if(pass1.length < 8){
+               cUsCloud_myjq('.advice_notice').html('Password must be 8 characters or more!').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_pass1').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if( !cUsCloud_first_name.length){
+               cUsCloud_myjq('.advice_notice').html('Your First Name is a required field').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_first_name').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if( !cUsCloud_last_name.length){
+               cUsCloud_myjq('.advice_notice').html('Your Last Name is a required field').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_last_name').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if(!cUsCloud_email.length){
+               cUsCloud_myjq('.advice_notice').html('Email is a required field!').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#apikey').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if(!cUsCloud_emailValid){
+               cUsCloud_myjq('.advice_notice').html('Please, enter a valid Email').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_email').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if(!cUsCloud_web.length){
+               cUsCloud_myjq('.advice_notice').html('Your Website is a required field').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_web').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else if(!cUsCloud_webValid){
+               cUsCloud_myjq('.advice_notice').html('Please, enter one valid website URL').slideToggle().delay(2000).fadeOut(2000);
+               cUsCloud_myjq('#cUsCloud_web').focus();
+               cUsCloud_myjq('.loadingMessage').fadeOut();
+           }else{
                 cUsCloud_myjq('#cUsCloud_CreateCustomer').val('Loading . . .').attr({disabled:'disabled'});
                 
-                postData = {action: 'cUsCloud_verifyCustomerEmail', password:str_clean(pass1),fName:str_clean(cUsCloud_first_name),lName:str_clean(cUsCloud_last_name),Email:cUsCloud_email,website:cUsCloud_web};
+                postData = {action: 'cUsCloud_verifyCustomerEmail', password:str_clean(pass1),fName:str_clean(cUsCloud_first_name),lName:str_clean(cUsCloud_last_name),Email:cUsCloud_email,website:cUsCloud_web,CU_category:CU_category,CU_subcategory:CU_subcategory,CU_goals:new_goals};
                 
                 cUsCloud_myjq.ajax({ 
                     type: "POST", 
@@ -141,7 +225,7 @@
                         }
                         
                         cUsCloud_myjq('.loadingMessage').fadeOut();
-                        cUsCloud_myjq('.advice_notice').html(message).show().delay(4000).fadeOut(2000);
+                        //cUsCloud_myjq('.advice_notice').html(message).show().delay(4000).fadeOut(2000);
 
                     },
                     fail: function(){
@@ -257,6 +341,20 @@
 		   }).attr("disabled","disabled");   
 		
 		}
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 
 	});

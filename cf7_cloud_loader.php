@@ -2,8 +2,8 @@
 /**
  * Initialization Class for CF7 Integrations 
  * Company 		: ContactUs.com
- * Programmer	: ContactUs Dev Team
- * Updated  	: 20131223
+ * Programmer	: ContactUs.com
+ * Updated  	: 20140113
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
 require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
@@ -12,8 +12,8 @@ require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'1.2'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.2';
+	private $cf7_cloud_db_version		= 	'1.2.1'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.2.1';
 		
 	/*
 	 *
@@ -282,9 +282,18 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		
 		public function Load_scripts(){
 			wp_register_script('my-scripts', WP_PLUGIN_URL.'/contact-form-7-integrations/assets/js/scripts.js');
+			
+			wp_enqueue_style( 'colorbox', plugins_url('includes/colorbox/colorbox.css', __FILE__), false, '1');
+			
+			wp_enqueue_style( 'other_info_styles', plugins_url('assets/css/styles2.css', __FILE__), false, '1');
+			wp_register_script( 'other_info_scripts', plugins_url('assets/js/main.js?pluginurl=' . dirname(__FILE__), __FILE__), array('jquery'), '1.0', true);
+			wp_register_script( 'colorbox', plugins_url('includes/colorbox/jquery.colorbox-min.js', __FILE__), array('jquery'), '1.4.33', true);
+			
 			global $current_screen; // check we are in our CF7 integrations plugin page
 			if( $current_screen->id == 'toplevel_page_cf7-integrations' || $current_screen->id == 'toplevel_page_wpcf7'){
 				wp_enqueue_script('my-scripts');
+				wp_enqueue_script('other_info_scripts');
+				wp_enqueue_script('colorbox');
 			}
 		}
 			

@@ -2,7 +2,7 @@
 
 //CONTACTUS.COM API V1.9
 //www.contactus.com
-//2013 copyright
+//2014 copyright
 
 /*
   Description: The CF7 Integrations API Methods
@@ -38,7 +38,12 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&Password=' . trim(urlencode($cUs_pass));
 		
 		//echo $strCURLOPT; exit;
-
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+			
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -71,15 +76,49 @@ class cUsComAPI_Cloud {
             $strCURLOPT .= '&Email='.trim($postData['email']);
             $strCURLOPT .= '&Password='.trim(urlencode($postData['password']));
             $strCURLOPT .= '&Form_Type=post';
-            $strCURLOPT .= '&Website='.esc_url(trim($postData['website']));;
+            $strCURLOPT .= '&Website='.esc_url(trim($postData['website']));
+			
+			
+			//check each one if exist to avoid error
+            if( strlen(trim($postData['Main_Category'])) > 2 ){
+            	//$cat = htmlentities($postData['Main_Category']);	
+            	$strCURLOPT .= '&Main_Category='.trim($postData['Main_Category']);
+			}
+				
+			
+			if( strlen(trim($postData['Sub_Category'])) > 2 ){	
+            	// $subcat = htmlentities($postData['Sub_Category']);
+            	$strCURLOPT .= '&Sub_Category='.trim($postData['Sub_Category']);
+			}
+			
+			
+			if(strlen($postData['Goals']) > 2){
+				$g = explode(',', $postData['Goals']);
+				
+				// delete last empty element of array 
+				array_pop($g);
+				
+				if( is_array($g) ){
+					foreach( $g as $goal ){
+						$strCURLOPT .= '&Goals[]='.$goal;	
+					}	
+				}
+			}
+
             $strCURLOPT .= '&IP_Address='.$this->getIP();
             $strCURLOPT .= '&Auto_Activate=1';
             $strCURLOPT .= '&API_Credentials=1';
             $strCURLOPT .= '&Promotion_Code=CF7i';
-            $strCURLOPT .= '&Version=cf7integrations|1.0b';
+            $strCURLOPT .= '&Version=cf7integrations|1.2.1';
             
             //echo $strCURLOPT; exit;
-
+			
+			curl_setopt($ch, CURLOPT_HTTPHEADER, 
+			array(
+			  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+			  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+			));
+			
             curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -129,7 +168,13 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&API_Action=getTemplatesDataAll';
         $strCURLOPT .= '&Form_Type=' . trim($formType);
         $strCURLOPT .= '&Selection_Type=' . trim($selType);
-
+		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -162,7 +207,13 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&API_Action=getTemplatesDataAllowed';
         $strCURLOPT .= '&Form_Type=' . trim($formType);
         $strCURLOPT .= '&Selection_Type=' . trim($selType);
-
+		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -187,7 +238,12 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&API_Action=getFormKeysData';
 
         //echo( $strCURLOPT ); exit;
-
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -216,7 +272,12 @@ class cUsComAPI_Cloud {
 
         //echo $strCURLOPT; exit;
 
-
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -245,7 +306,13 @@ class cUsComAPI_Cloud {
         
         if(strlen($postData['Template_Desktop_Tab']))
         $strCURLOPT .= '&Template_Desktop_Tab='.trim($postData['Template_Desktop_Tab']);
-
+		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -273,7 +340,13 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&MailChimp_Delivery_Enabled=1';
         $strCURLOPT .= '&MailChimp_Delivery_Api_Key=' . trim($postData['MC_apikey']);
         $strCURLOPT .= '&MailChimp_Delivery_Unique_List_ID=' . trim($postData['listID']);
-
+		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		array(
+		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		));
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);

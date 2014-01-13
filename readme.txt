@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.2 
+Stable tag: 1.2.1
 Requires at least: 3.5
 Tested up to: 3.8
 Donate link:
@@ -185,6 +185,9 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 4. Welcome screen
 
 == Changelog ==
+
+= 1.2.1 =
+New: Added Categories and objectives in the startup wizard.
 
 = 1.2 =
 Upgraded API calls, fixed some bugs and replaced deprecated API call methods. 
