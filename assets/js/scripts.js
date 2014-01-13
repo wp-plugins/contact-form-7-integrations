@@ -206,8 +206,10 @@
 
                             break;
                             case '2':
-                            
-                            // alert(data);
+                            	
+                            	cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox.close();
+                            	
+                            	// alert(data);
                                 message = 'Seems like you already have one Contactus.com Account, Please Login below!';
                                  
                                 setTimeout(function(){
@@ -216,7 +218,8 @@
                                     cUsCloud_myjq('#cUsCloud_settings').slideDown('slow');
                                     cUsCloud_myjq('#cUsCloud_loginform').delay(1000).fadeIn();
                                     cUsCloud_myjq('#cUsCloud_CreateCustomer').val('Create Account').removeAttr('disabled');
-                                },2000)
+                                },2000);
+                                cUsCloud_myjq('.advice_notice').html(message).show().delay(4000).fadeOut(2000);
                             break;  
                             default: 
                                 message = '<p>Ouch! Unfortunately, there has being an error during the application: <b>' + data + '</b>. Please try again or <a href="http://help.contactus.com" target="_blank">Contact Support</a></p>';
