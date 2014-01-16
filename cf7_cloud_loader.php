@@ -12,8 +12,8 @@ require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'1.2.1'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.2.1';
+	private $cf7_cloud_db_version		= 	'1.3'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.3';
 		
 	/*
 	 *
@@ -723,9 +723,9 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 						
 			$prev_url = $_SERVER["HTTP_REFERER"];
 			
-			$error_main 	= 'The Email and Name cannot have same CF7 select values';
+			$error_main 	= 'The Email and Name cannot have the same CF7  values. Please change one and try again.';
 			$error_customs 	= 'The following CF7 fields were detected duplicates in your selects: ';
-			$error_CUapi 	= 'The following ContactUs.com fields were detected duplicate in your selects: ';
+			$error_CUapi 	= 'The following ContactUs.com fields were detected as duplicates in your selection: ';
 			$string_error 	= '';
 			
 			//print_r( $cf7_customs ); exit;
@@ -792,7 +792,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					if( !empty($cf7_CUapi_duplicate) ){
 					  foreach($cf7_CUapi_duplicate as $key => $value)
 					    $string_error .= urlencode($value.', ');
-					 header('Location:'.$prev_url.'&cf7cloud_errors='.$error_CUapi.$string_error.urlencode(' only one field for relationship allowed')."#cf7cloud_errors");
+					 header('Location:'.$prev_url.'&cf7cloud_errors='.$error_CUapi.$string_error.urlencode(' Please try again.')."#cf7cloud_errors");
 					 exit;
 					}
 				

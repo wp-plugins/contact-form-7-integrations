@@ -52,7 +52,6 @@ $cf7_cloud_activated = get_option('cf7_cloud_database_active');
 <!-- left side container -->
 <div id="CUintegrations_toleft">
 	
-	
 	<?php
 	  // get current user logged in info.
 	  // global $current_user;
@@ -465,7 +464,7 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 				</ul>
 				
 				<div class="int-navigation">
-				<div class="btn btn-link btn-skip">Skip<img src="<?php echo plugins_url('../assets/images/ajax-loader.gif', __FILE__); ?>" width="16" height="16" alt="Loading . . ." style="display:none; vertical-align:middle;" class="img_loader" /></div>
+				<div class="next btn btn-skip">Skip<img src="<?php echo plugins_url('../assets/images/ajax-loader.gif', __FILE__); ?>" width="16" height="16" alt="Loading . . ." style="display:none; vertical-align:middle;" class="img_loader" /></div>
 				
 				<div class="next btn unactive" id="open-intestes">Next Question</div>
 				</div>
@@ -490,7 +489,7 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 				<div id="other-interest">Please tell us <input type="text" name="other" id="other_goal" value="" /></div>
 				
 				<div class="int-navigation">
-					<div class="btn btn-link btn-skip">Skip</div>
+					<div class="next btn btn-skip">Skip</div>
 					<div class="next btn unactive btn-skip" id="save">Save Preferences</div>
 					<img src="<?php echo plugins_url('../assets/images/ajax-loader.gif', __FILE__); ?>" width="16" height="16" alt="Loading . . ." style="display:none; vertical-align:middle;" class="img_loader" />
 				</div>

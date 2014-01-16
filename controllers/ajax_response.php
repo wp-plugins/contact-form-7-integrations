@@ -24,7 +24,7 @@ function cUsCloud_loginAlreadyUser_callback() {
                 $cUs_API_Account    = $cUs_json->api_account;
                 $cUs_API_Key        = $cUs_json->api_key;
                 
-                if(strlen(trim($cUs_API_Account)) && strlen(trim($cUs_API_Key))):
+                if(strlen(trim($cUs_API_Account)) && strlen(trim($cUs_API_Key))){
                     
                     $aryUserCredentials = array(
                         'API_Account' => $cUs_API_Account,
@@ -38,7 +38,7 @@ function cUsCloud_loginAlreadyUser_callback() {
                 
                     //print_r( $cUs_jsonKeys ); exit;
 
-                    if($cUs_jsonKeys->status == 'success' ):
+                    if($cUs_jsonKeys->status == 'success' ){
                         
                         $postData = array( 'email' => $cUs_email, 'credential'    => $cUs_pass);
                         update_option('cUsCloud_settings_userData', $postData);
@@ -67,13 +67,15 @@ function cUsCloud_loginAlreadyUser_callback() {
 
                             //echo 1;
                         
-                    else:
+                    }elseif($cUs_jsonKeys->error === 'No valid form keys'){
+                    	echo 2;
+					}else{
                         echo 'Error. . . ';
-                    endif;
+					}
                     
-                else:
+                }else{
                     echo 'Error. . . ';
-                endif;
+                }
                 
                 break;
 

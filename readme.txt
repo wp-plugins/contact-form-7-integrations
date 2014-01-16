@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.2.1
+Stable tag: 1.3
 Requires at least: 3.5
 Tested up to: 3.8
 Donate link:
@@ -186,6 +186,11 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
+= 1.3 =
+* UPDATE : Updated improved API methods
+* General Bug fixes
+* *Launch date 16.01.2014*
+
 = 1.2.1 =
 New: Added Categories and objectives in the startup wizard.
 
@@ -211,6 +216,9 @@ This update added primary phone as a mappable field
 First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
+
+= 1.3 =
+New version available, update NOW!
 
 = 1.2 =
 Bug Fixes and smoother experience.

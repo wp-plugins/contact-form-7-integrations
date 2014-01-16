@@ -222,7 +222,7 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&Form_Type=' . trim($formType);
         $strCURLOPT .= '&Selection_Type=' . trim($selType);
 		
-		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+		curl_setopt($ch, CURLOPT_HTTPHEADER,
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
@@ -253,7 +253,7 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&Form_Type=post';
         $strCURLOPT .= '&API_Action=getFormKeysData';
 
-        //echo( $strCURLOPT ); exit;
+        // echo( $strCURLOPT ); exit;
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],

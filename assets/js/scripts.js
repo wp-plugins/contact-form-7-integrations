@@ -211,7 +211,7 @@
                             	cUsCloud_myjq(".img_loader").css({display:'none'});
                             	
                             	// alert(data);
-                                message = 'Seems like you already have one Contactus.com Account, Please Login below!';
+                                message = "There is already an account with that email address. If you've forgotten your password, either reset it with the link provided or <a href='http://help.contactus.com' target='_blank'>Contact us</a>.";
                                  
                                 setTimeout(function(){
                                     cUsCloud_myjq('#login_email').val(cUsCloud_email).focus();
@@ -223,7 +223,7 @@
                                 cUsCloud_myjq('.advice_notice').html(message).show().delay(4000).fadeOut(2000);
                             break;  
                             default: 
-                                message = '<p>Ouch! Unfortunately, there has being an error during the application: <b>' + data + '</b>. Please try again or <a href="http://help.contactus.com" target="_blank">Contact Support</a></p>';
+                                message = '<p>There has been an application error. <b>' + data + '</b>. Please try again or <a href="http://help.contactus.com" target="_blank">Contact Support</a></p>';
                                 cUsCloud_myjq('#cUsCloud_CreateCustomer').val('Create Account').removeAttr('disabled');
                             break;
                         }
@@ -233,7 +233,7 @@
 
                     },
                     fail: function(){
-                       message = '<p>Ouch! Unfortunately, there has being an error during the application. Please try again!</a></p>';
+                       message = '<p>There has been an application error. Please try again!</a></p>';
                        cUsCloud_myjq('#cUsCloud_CreateCustomer').val('Continue to Step 2').removeAttr('disabled'); 
                     }
                 });
@@ -269,7 +269,7 @@
                 cUsCloud_myjq('.cUsCloud_LoginUser').val('Loading . . .').attr({disabled:'disabled'});
                 cUsCloud_myjq.ajax({ type: "POST", url: ADMIN_AJAX_URL+'admin-ajax.php', data: {action:'cUsCloud_loginAlreadyUser',email:email,pass:pass},
                     success: function(data) {
-                        
+                       
                         switch(data){
                             case '1':
                                 
@@ -287,7 +287,7 @@
                                 cUsCloud_myjq('#loginbtn').attr('disabled', false );
                                 cUsCloud_myjq('#loginbtn').attr('value', 'Login');
                                 
-                                message = '<p>Seems like you don\'t have one Default Contact Forms added in your ContactUs.com account!.</p>';
+                                message = '<p>Seems like you don\'t have one Default Contact Forms added in your ContactUs.com account.</p>';
                                 message += '<p>Please login into your admin panel at ContactUs.com and add at least one to continue...</p>';
                                 
                                 // cUsCloud_loginform
@@ -301,7 +301,7 @@
                                 
                                 cUsCloud_myjq('.cUsCloud_LoginUser').val('Error . . .');
                                 cUsCloud_myjq('.cUsCloud_Loginform').slideUp().fadeOut();
-                                message = '<p>Seems like you don\'t have one Default Contact Forms added in your ContactUs.com account!.</p>';
+                                message = '<p>Seems like you don\'t have one Default Contact Forms added in your ContactUs.com account.</p>';
                                 message += '<p>Please login into your admin panel at ContactUs.com and add at least one to continue...</p>';
                                 cUsCloud_myjq('.cUsCloud_LoginUser').val('Login').removeAttr('disabled');
                                 cUsCloud_myjq('.advice_notice').html(message).show();
@@ -311,7 +311,7 @@
 
                             default:
                                 cUsCloud_myjq('.cUsCloud_LoginUser').val('Login').removeAttr('disabled');
-                                message = '<p>Ouch! Unfortunately, there has being an error during the application: <b>' + data + '</b>. Please try again or <a href="http://help.contactus.com" target="_blank">Contact Support</a></p>';
+                                message = '<p>There has been an application error. <b>' + data + '</b>. Please try again or <a href="http://help.contactus.com" target="_blank">Contact Support</a></p>';
                                 cUsCloud_myjq('.advice_notice').html(message).show();
                                 break;
                         }
