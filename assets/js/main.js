@@ -4,12 +4,12 @@ jQuery('#customer-categories .parent-title').on('click', function(){
 	
 	jQuery(this).parent('li').addClass('cat-selected').show();
 	jQuery(this).next('.sub-category').show();
-	jQuery("#Selected-Category").text(jQuery(this).find('.parent-title').text());
+	jQuery("#Selected-Category").text( jQuery(this).attr('data-maincat') );
 	
-	//alert( jQuery(this).text() );
+	//alert( jQuery(this).attr('data-maincat') );
 	
 	// assign the category name
-	jQuery('#CU_category').val( jQuery(this).text() );
+	jQuery('#CU_category').val( jQuery(this).attr('data-maincat') );
 	jQuery(this).colorbox.resize();
 	
 	if(jQuery('#back').length == 1){
@@ -25,7 +25,7 @@ function back_cat(){
 	// event.preventDefault();
 	// console.log('CLEAR');
 	
-	jQuery("#category-message").text('Select the Category of Your Website:')
+	jQuery("#category-message").text('Select the Category of Your Website:');
 	jQuery("#open-intestes").addClass("unactive");
 	jQuery("#save").addClass("unactive");
 	jQuery("#Selected-Category").text('');
@@ -43,13 +43,15 @@ function back_cat(){
 }
 
 jQuery('#customer-categories .parent-category .sub-category li').on('click', function(){
+
+	//alert( jQuery(this).attr('data-subcat') );
 	
 	jQuery(this).colorbox.resize();
-	jQuery('#CU_subcategory').val( jQuery(this).text());
+	jQuery('#CU_subcategory').val( jQuery(this).attr('data-subcat') );
 	jQuery("#open-intestes").removeClass("unactive");
 	jQuery('#customer-categories .parent-category .sub-category li').removeClass('Selected-Subcategory');
 	jQuery(this).addClass('Selected-Subcategory');
-	jQuery("#Sub-Category").text(jQuery(this).text());
+	jQuery("#Sub-Category").text( jQuery(this).attr('data-subcat') );
 	
 });
 
@@ -63,7 +65,7 @@ jQuery('#user-interests li').live('click', function(){
 		
 		jQuery(this).removeClass("Selected-Subcategory");
 		
-		var actual = jQuery(this).text();
+		var actual = jQuery(this).attr('data-goals');
 		
 		jQuery('input[name="the_goals[]"]').each(function(index, value){
 			//alert( jQuery(value).val() );
@@ -81,12 +83,11 @@ jQuery('#user-interests li').live('click', function(){
 			jQuery('#other_goal').val('');
 		}
 			
-		
-		
+
 	}else{
 		// jQuery('#CU_goals').val( jQuery(this).text() );
 		var addDiv = jQuery('#goals_added');
-		jQuery('<input type="hidden" name="the_goals[]" value="'+jQuery(this).text()+'" />').appendTo(addDiv);
+		jQuery('<input type="hidden" name="the_goals[]" value="'+jQuery(this).attr('data-goals')+'" />').appendTo(addDiv);
 		
 		//jQuery("#user-interests li").removeClass("Selected-Subcategory");
 		//jQuery("#other-interest").removeClass("obj-visible");

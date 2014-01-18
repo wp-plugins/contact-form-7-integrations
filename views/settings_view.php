@@ -241,231 +241,43 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 				
 				<h4 class="cc-title" id="category-message">Select the Category of Your Website:</h4>
 				
-				<ul id="customer-categories">
-					<li class="parent-category"><span id="Agents" class="parent-title">Agents</span>
-					<ul class="sub-category">
-						<li><span>Insurance Agent</span></li>
-						<li><span>Mortgage Broker</span></li>
-						<li><span>Real Estate Agent</span></li>
-						<li><span>Travel Agent</span></li>
-						<li><span>Other Agent</span></li>
-					</ul> 
-					</li>
-				
-					<li class="parent-category"> <span id="Business-Services" class="parent-title">Business Services</span>
-					
-					<ul class="sub-category">
-						<li><span>Advertising / Marketing / PR</span></li>
-						<li><span>Art / Media / Design</span></li>
-						<li><span>Customer Service</span></li>
-						<li><span>Finance</span></li>
-						<li><span>Food / Beverage / Hospitality</span></li>
-						<li><span>Human Resources</span></li>
-						<li><span>IT</span></li>
-						<li><span>Legal</span></li>
-						<li><span>Logistics / Moving</span></li>
-						<li><span>Manufacturing</span></li>
-						<li><span>Medical / Health</span></li>
-						<li><span>Sales</span></li>
-						<li><span>Telecom</span></li>
-						<li><span>Utilities</span></li>
-						<li><span>Web Design / Development</span></li>
-						<li><span>Other Business Services</span></li>
-					</ul>
-					</li>
-				
-					<li class="parent-category"> <span id="Content" class="parent-title">Content</span>
-					<ul class="sub-category">
-						<li><span>Blog</span></li>
-						<li><span>Entertainment</span></li>
-						<li><span>Finance</span></li>
-						<li><span>Jobs</span></li>
-						<li><span>News</span></li>
-						<li><span>Politics</span></li>
-						<li><span>Sports</span></li>
-						<li><span>Other</span></li>
-					</ul> 
-					</li>
-				
-					<li class="parent-category"> <span id="Education" class="parent-title">Education</span>
-				<ul class="sub-category">
-					<li><span>Career Training</span></li>
-					<li><span>For-Profit School</span></li>
-					<li><span>Language Learning</span></li>
-					<li><span>Non-Profit School</span></li>
-					<li><span>Recreational Learning</span></li>
-					<li><span>Tutoring / Lessons</span></li>
-				</ul>
-					</li>
-				
-				<li class="parent-category"> <span id="Freelancers" class="parent-title">Freelancers</span>
-				
-				<ul class="sub-category">
-					<li><span>Actor / Model</span></li>
-					<li><span>Band / Musician</span></li>
-					<li><span>Business Consultant</span></li>
-					<li><span>Graphic Designer</span></li>
-					<li><span>Marketing Consultant</span></li>
-					<li><span>Software Engineer</span></li>
-					<li><span>Web Designer / Developer</span></li>
-					<li><span>Writer</span></li>
-					<li><span>Video Production</span></li>
-					<li><span>Other Independent Consultant</span></li>
-				</ul>
-					
-				</li>
-				
-				<li class="parent-category"> <span id="Home-Services" class="parent-title">Home Services</span>
-				
-				<ul class="sub-category">
-					<li><span>Audio / Video</span></li>
-					<li><span>Carpet Cleaning</span></li>
-					<li><span>Catering</span></li>
-					<li><span>Contractor</span></li>
-					<li><span>Dog Walking / Pet Sitting</span></li>
-					<li><span>Electrical</span></li>
-					<li><span>Furniture Repair</span></li>
-					<li><span>Gutter Cleaning</span></li>
-					<li><span>Handy Man/Repair</span></li>
-					<li><span>Home Security</span></li>
-					<li><span>House Cleaning</span></li>
-					<li><span>HVAC Services</span></li>
-					<li><span>Interior Design</span></li>
-					<li><span>Landscaping / Lawncare</span></li>
-					<li><span>Locksmith</span></li>
-					<li><span>Moving</span></li>
-					<li><span>Painting</span></li>
-					<li><span>Pest Control</span></li>
-					<li><span>Plumbing</span></li>
-					<li><span>Window Washing</span></li>
-					<li><span>Window Repair</span></li>
-					<li><span>Other Home Service</span></li>
-				</ul>
-				
-				</li>
-				
-				<li class="parent-category"> <span id="Non-Profit" class="parent-title">Non-Profit or Community Group</span>
-				<ul class="sub-category">
-					<li><span>Charity</span></li>
-					<li><span>Community Organization</span></li>
-					<li><span>Educational Organization</span></li>
-					<li><span>Government Organization</span></li>
-					<li><span>Health Organization</span></li>
-					<li><span>Political Organization</span></li>
-					<li><span>Religious Organization</span></li>
-					<li><span>Other Non-Profit</span></li>
-				</ul>	
-				</li>
-				
-				<li class="parent-category"> <span id="Personal-Services" class="parent-title">Personal Services</span>
-				<ul class="sub-category">
-					<li><span>Beauty (hair, nails, etc.)</span></li>
-					<li><span>Child Care</span></li>
-					<li><span>Day Care</span></li>
-					<li><span>Massage Therapist</span></li>
-					<li><span>Personal Trainer</span></li>
-					<li><span>Photographers</span></li>
-					<li><span>Tutoring / Lessons</span></li>
-					<li><span>Other Personal Service</span></li>
-				</ul>
-				</li>	
-				
-				<li class="parent-category"> <span id="Profesional-Services" class="parent-title">Professional Services</span>
-				<ul class="sub-category">
-					<li><span>Accountant</span></li>
-					<li><span>Architect / Engineering</span></li>
-					<li><span>Admin / Office</span></li>
-					<li><span>Computer Repair / IT Help</span></li>
-					<li><span>Dentist</span></li>
-					<li><span>Doctor</span></li>
-					<li><span>Education</span></li>
-					<li><span>Financial Planning</span></li>
-					<li><span>Lawyer</span></li>
-					<li><span>Life Coach</span></li>
-					<li><span>Logistics / Moving</span></li>
-					<li><span>Medical / Health</span></li>
-					<li><span>Optometrist / Optician</span></li>
-					<li><span>Security</span></li>
-					<li><span>Skilled Trade</span></li>
-					<li><span>Software</span></li>
-					<li><span>Therapist</span></li>
-					<li><span>Transportation</span></li>
-					<li><span>Veterinarian</span></li>
-					<li><span>Wedding / Special Events</span></li>
-					<li><span>Other Professional Service</span></li>
-				</ul>
-				</li>
-				
-				<li class="parent-category"><span id="Offline-Retail" class="parent-title">Offline Retail</span>
-				<ul class="sub-category">
-					<li><span>Apparel</span></li>
-					<li><span>Auto Sales</span></li>
-					<li><span>Auto Services</span></li>
-					<li><span>Electronics</span></li>
-					<li><span>Flowers and Gifts</span></li>
-					<li><span>Food and Beverage</span></li>
-					<li><span>Furniture</span></li>
-					<li><span>Jewelry</span></li>
-					<li><span>Music</span></li>
-					<li><span>Pets</span></li>
-					<li><span>Restaurants</span></li>
-					<li><span>Salons / Barbers</span></li>
-					<li><span>Spa</span></li>
-					<li><span>Specialty Items</span></li>
-					<li><span>Toys / Games</span></li>
-					<li><span>Other Local</span></li>
-				</ul>
-				</li>
-				
-				<li class="parent-category"><span id="Online-Retail" class="parent-title">Online Retail</span>
-				<ul class="sub-category">
-					<li><span>Apparel</span></li>
-					<li><span>Electronics</span></li>
-					<li><span>Flowers and Gifts</span></li>
-					<li><span>Food and Beverage</span></li>
-					<li><span>Invitations</span></li>
-					<li><span>Gifts</span></li>
-					<li><span>Pets</span></li>
-					<li><span>Specialty Items</span></li>
-					<li><span>Toys / Games</span></li>
-					<li><span>Other Online</span></li>
-				</ul>
-				</li>
-				
-				
-				<li class="parent-category"><span id="Travel-Hospitality" class="parent-title">Travel and Hospitality</span>
-				<ul class="sub-category">
-					<li><span>Car Rental</span></li>
-					<li><span>Excursion</span></li>
-					<li><span>Hotel / Motel</span></li>
-					<li><span>Tours</span></li>
-					<li><span>Transportation</span></li>
-					<li><span>Vacation Homes</span></li>
-					<li><span>Vacation Packages</span></li>
-				</ul>
-				</li>
-				
-				<li class="parent-category"><span id="Web-Service" class="parent-title">Web Service</span>
-				<ul class="sub-category">
-					<li><span>Consumer Web Service</span></li>
-					<li><span>Small Business Web Service</span></li>
-					<li><span>Enterprise Web Service</span></li>
-				</ul>
-				</li>
-				
-				<li class="parent-category"><span id="Other-Service-Industry" class="parent-title">Other Service Industry</span>
-				<ul class="sub-category">
-					<li><span>Events</span></li>
-					<li><span>Recreation</span></li>
-					<li><span>Other</span></li>
-				</ul>	
-				</li>
+
+				<?php
+
+                        /*
+                        * GET CATEGORIES AND SUBCATEGORIES
+                        */
+                        
+                        $cUsComAPI_Cloud = new cUsComAPI_Cloud();
+
+                        $aryCategoriesAndSub = $cUsComAPI_Cloud->get_categories();
+						
+						//print_r( $aryCategoriesAndSub );
+
+                        if(is_array($aryCategoriesAndSub)){ ?>
+                        <ul id="customer-categories">
+                        <?php
+                            foreach ($aryCategoriesAndSub as $category => $arySubs) { ?>
+
+                                <li class="parent-category"><span data-maincat="<?php echo $category; ?>" id="<?php echo str_replace(' ', '-', $category); ?>" class="parent-title"><?php echo trim($category); ?></span>
+                                <?php if(is_array($arySubs)) {?>
+                                <ul class="sub-category">
+                                    <?php foreach ($arySubs as $Sub) { ?>
+                                    <li data-subcat="<?php echo $Sub; ?>"><span><?php echo trim($Sub); ?></span></li>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </li>
+
+                        <?php } ?>
+                        </ul>
+                        <?php } ?>
 				
 				</ul>
 				
 				<div class="int-navigation">
-				<div class="next btn btn-skip">Skip<img src="<?php echo plugins_url('../assets/images/ajax-loader.gif', __FILE__); ?>" width="16" height="16" alt="Loading . . ." style="display:none; vertical-align:middle;" class="img_loader" /></div>
-				
+				<div id="skip-button" class="next btn btn-skip skip-button">Skip</div>
+				<img src="<?php echo plugins_url('../assets/images/ajax-loader.gif', __FILE__); ?>" width="16" height="16" alt="Loading . . ." style="display:none; vertical-align:middle;" class="img_loader" />
 				<div class="next btn unactive" id="open-intestes">Next Question</div>
 				</div>
 				
@@ -475,21 +287,27 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 					<div class="cc-headline">Hi <?php echo $current_user->user_login; ?></div>
 					<div class="cc-message">What are your goals for your ContactUs.com form?</div>
 				
-				<ul id="user-interests">
-					<li><span>Generating online sales</span></li>
-					<li><span>Generating offline sales</span></li>
-					<li><span>Generating sales leads</span></li>
-					<li><span>Generating phone calls</span></li>
-					<li><span>Growing your email marketing list</span></li>
-					<li><span>Providing customer service</span></li>
-					<li><span class="grey">None, I just want a contact form on my site that sends to my email.</span></li>
-					<li id="other"><span>Other</span></li>
+				<?php
+
+	                /*
+	                * GET GOALS
+	                */  
+	                $aryGoals = $cUsComAPI_Cloud->get_goals();
+	
+	                if(is_array($aryGoals)){ ?>
+	                <ul id="user-interests">
+	                <?php foreach ($aryGoals as $Goal) { ?>
+	                    <li data-goals="<?php echo trim($Goal); ?>" <?php if($Goal === 'Other') { ?>id="other"<?php } ?>><span <?php if (strpos($Goal,'to my email') !== false) { ?> class="grey" <?php } ?>><?php echo trim($Goal); ?></span></li>
+	                <?php } ?>
+	                </ul>
+	            <?php } ?>
 				
-				</ul>
+				
+				
 				<div id="other-interest">Please tell us <input type="text" name="other" id="other_goal" value="" /></div>
 				
 				<div class="int-navigation">
-					<div class="next btn btn-skip">Skip</div>
+					<div class="next btn btn-skip skip-button">Skip</div>
 					<div class="next btn unactive btn-skip" id="save">Save Preferences</div>
 					<img src="<?php echo plugins_url('../assets/images/ajax-loader.gif', __FILE__); ?>" width="16" height="16" alt="Loading . . ." style="display:none; vertical-align:middle;" class="img_loader" />
 				</div>

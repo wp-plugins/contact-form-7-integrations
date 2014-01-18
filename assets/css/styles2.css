@@ -219,3 +219,8 @@ font-size: 13px;
 .img_loader {
 	margin:0px 8px 0px 8px;
 }
+
+#cboxClose {
+	display:none;
+}
+

@@ -16,11 +16,9 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	private $cf7_cloud_version			= 	'1.3';
 		
 	/*
-	 *
 	  'First_Name'				=> 	'First Name',
 	  'Last_Name'				=> 	'Last Name',
 	  'Full_Name'				=> 	'Full Name',
-	 *
 	 */
 
 	// create here the list of possible fields for contactUs.com API calls
@@ -57,6 +55,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	  'Generic_Field_9'			=>	'Generic Field 9',
 	  'Generic_Field_10'		=>	'Generic Field 10'
 	);
+	
 	
 	private $cf7class;
 	
@@ -1014,6 +1013,66 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			return $customs;
 			
 		}
+		
+		
+		
+			/*
+     * Method in charge to return Signu Up categories and Sub Categories
+     * @since 4.0.1
+     * @return array
+     */
+    public function getCategoriesSubs() {
+
+	       $aryCategoriesSubs = array(
+		   'Agents' => array('Insurance Agent','Mortgage Broker','Real Estate Agent','Travel Agent','Other Agent',),
+		   'Business Services' =>   array('Advertising / Marketing / PR','Art / Media / Design','Customer Service','Finance','Food / Beverage / Hospitality','Human Resources','IT','Legal','Logistics / Moving','Manufacturing','Medical / Health','Sales','Telecom','Utilities','Web Design / Development','Other Business Services',),
+		   'Content'   => array('Blog','Entertainment','Finance','Jobs','News','Politics','Sports','Other',),
+		   'Education' =>   array('Career Training','For-Profit School','Language Learning','Non-Profit School','Recreational Learning','Tutoring / Lessons',),
+		   'Freelancers'   => array('Actor / Model','Band / Musician','Business Consultant','Graphic Designer','Marketing Consultant','Software Engineer','Web Designer / Developer','Writer','Video Production','Other Independent Consultant',),
+		   'Home Services' =>   array('Audio / Video','Carpet Cleaning','Catering','Contractor','Dog Walking / Pet Sitting','Electrical','Furniture Repair','Gutter Cleaning','Handy Man/Repair','Home Security','House Cleaning','HVAC Services','Interior Design','Landscaping / Lawncare','Locksmith','Moving','Painting','Pest Control','Plumbing','Window Washing','Window Repair','Other Home Service',),
+		   'Non-Profit or Community Group' =>   array('Charity','Community Organization','Educational Organization','Government Organization','Health Organization','Political Organization','Religious Organization','Other Non-Profit',),
+		   'Offline Retail' =>  array('Apparel','Auto Sales','Auto Services','Electronics','Flowers and Gifts','Food and Beverage','Furniture','Jewelry','Music','Pets','Restaurants','Salons / Barbers','Spa','Specialty Items','Toys / Games','Other Local',),
+		   'Online Retail'=>   array('Apparel','Electronics','Flowers and Gifts','Food and Beverage','Invitations','Gifts','Pets','Specialty Items','Toys / Games','Other Online',),
+		   'Other Service Industry'=>  array('Events','Recreation','Other',),
+		   'Personal Services'=>   array('Beauty (hair, nails, etc.)','Child Care','Day Care','Massage Therapist','Personal Trainer','Photographers','Tutoring / Lessons','Other Personal Service',),
+		   'Professional Services'=>   array('Accountant','Architect / Engineering','Admin / Office','Computer Repair / IT Help','Dentist','Doctor','Education','Financial Planning','Lawyer','Life Coach','Logistics / Moving','Medical / Health','Optometrist / Optician','Security','Skilled Trade','Software','Therapist','Transportation','Veterinarian','Wedding / Special Events','Other Professional Service',),
+		   'Travel and Hospitality'=>  array('Car Rental','Excursion','Hotel / Motel','Tours','Transportation','Vacation Homes','Vacation Packages',),
+		   'Web Service'=> array('Consumer Web Service','Small Business Web Service','Enterprise Web Service',)
+		  );
+
+        	return $aryCategoriesSubs;
+    }
+    
+ 
+	 
+	 /*
+     * Method in charge to return Signu Up Goals
+     * @since 4.0.1
+     * @return array
+     */
+    public function getGoals() {
+
+        $aryGoals = array(
+		   'Generating online sales',
+		   'Generating offline sales',
+		   'Generating sales leads',
+		   'Generating phone calls',
+		   'Growing your email marketing list',
+		   'Providing customer service',
+		   'None, I just want a contact form on my site that sends to my email',
+		   'Other',
+		);
+
+        return $aryGoals;
+    }
+		
+		
+		
+		
+		
+		
+		
+		
 		
 } // end class definition
 

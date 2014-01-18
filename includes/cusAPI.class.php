@@ -16,6 +16,35 @@ class cUsComAPI_Cloud {
     
     var $v = '1.9';
 	var $enviroment = 'http://api.contactus.com/api2.php';
+	
+	private $CU_categories = array(
+		'Agents' => array('Insurance Agent','Mortgage Broker','Real Estate Agent','Travel Agent','Other Agent'),
+		'Business Services' =>   array('Advertising / Marketing / PR','Art / Media / Design','Customer Service','Finance','Food / Beverage / Hospitality','Human Resources','IT','Legal','Logistics / Moving','Manufacturing','Medical / Health','Sales','Telecom','Utilities','Web Design / Development','Other Business Services'),
+		'Content'   => array('Blog','Entertainment','Finance','Jobs','News','Politics','Sports','Other'),
+		'Education' =>   array('Career Training','For-Profit School','Language Learning','Non-Profit School','Recreational Learning','Tutoring / Lessons'),
+		'Freelancers'   => array('Actor / Model','Band / Musician','Business Consultant','Graphic Designer','Marketing Consultant','Software Engineer','Web Designer / Developer','Writer','Video Production','Other Independent Consultant'),
+		'Home Services' =>   array('Audio / Video','Carpet Cleaning','Catering','Contractor','Dog Walking / Pet Sitting','Electrical','Furniture Repair','Gutter Cleaning','Handy Man/Repair','Home Security','House Cleaning','HVAC Services','Interior Design','Landscaping / Lawncare','Locksmith','Moving','Painting','Pest Control','Plumbing','Window Washing','Window Repair','Other Home Service'),
+		'Non-Profit or Community Group' =>   array('Charity','Community Organization','Educational Organization','Government Organization','Health Organization','Political Organization','Religious Organization','Other Non-Profit'),
+		'Offline Retail' =>  array('Apparel','Auto Sales','Auto Services','Electronics','Flowers and Gifts','Food and Beverage','Furniture','Jewelry','Music','Pets','Restaurants','Salons / Barbers','Spa','Specialty Items','Toys / Games','Other Local'),
+		'Online Retail'=>   array('Apparel','Electronics','Flowers and Gifts','Food and Beverage','Invitations','Gifts','Pets','Specialty Items','Toys / Games','Other Online'),
+		'Other Service Industry'=>  array('Events','Recreation','Other'),
+		'Personal Services'=>   array('Beauty (hair, nails, etc.)','Child Care','Day Care','Massage Therapist','Personal Trainer','Photographers','Tutoring / Lessons','Other Personal Service'),
+		'Professional Services'=>   array('Accountant','Architect / Engineering','Admin / Office','Computer Repair / IT Help','Dentist','Doctor','Education','Financial Planning','Lawyer','Life Coach','Logistics / Moving','Medical / Health','Optometrist / Optician','Security','Skilled Trade','Software','Therapist','Transportation','Veterinarian','Wedding / Special Events','Other Professional Service'),
+		'Travel and Hospitality'=>  array('Car Rental','Excursion','Hotel / Motel','Tours','Transportation','Vacation Homes','Vacation Packages'),
+		'Web Service'=> array('Consumer Web Service','Small Business Web Service','Enterprise Web Service')
+	);
+	
+	private $CU_goals = array(
+		
+		   'Generating online sales',
+		   'Generating offline sales',
+		   'Generating sales leads',
+		   'Generating phone calls',
+		   'Growing your email marketing list',
+		   'Providing customer service',
+		   'None, I just want a contact form on my site that sends to my email',
+		   'Other'
+	);
     
     public function cUsComAPI_Cloud(){
         $cUs_email = '';
@@ -38,6 +67,7 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&Password=' . trim(urlencode($cUs_pass));
 		
 		//echo $strCURLOPT; exit;
+		
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
@@ -252,9 +282,12 @@ class cUsComAPI_Cloud {
         $strCURLOPT .= '&API_Key='.trim($cUs_API_Key);
         $strCURLOPT .= '&Form_Type=post';
         $strCURLOPT .= '&API_Action=getFormKeysData';
+        
+        //print_r($this->CU_categories[12]); exit;
+		
+        //echo( $strCURLOPT ); exit;
 
-        // echo( $strCURLOPT ); exit;
-		curl_setopt($ch, CURLOPT_HTTPHEADER, 
+        curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
 		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
@@ -462,5 +495,36 @@ class cUsComAPI_Cloud {
         
         return true;
     }
+	
+	
+	/*
+	 * getter method that returns categories()
+	 * @since 1.3
+	 * @return Array categories
+	 * */
+	 public function get_categories(){
+	 	return $this->CU_categories;
+	 }
+	 
+	 
+	 /*
+	 * getter method that returns categories()
+	 * @since 1.3
+	 * @return Array cgoals
+	 * */
+	 public function get_goals(){
+	 	return $this->CU_goals;
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	
+	
+	
+	
+	
 }
 ?>

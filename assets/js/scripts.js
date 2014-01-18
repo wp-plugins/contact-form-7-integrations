@@ -100,7 +100,7 @@
                cUsCloud_myjq('#cUsCloud_web').focus();
                cUsCloud_myjq('.loadingMessage').fadeOut();
            }else{
-			   cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox({inline:true, maxWidth:'100%', minHeight:'430px', scrolling:false });	
+			   cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox({inline:true, maxWidth:'100%', minHeight:'430px', scrolling:false, overlayClose:false });	
 		   }
     });
 	
@@ -111,6 +111,9 @@
     //Try to register this new user.
     try{
         cUsCloud_myjq('.btn-skip').click(function() {
+            
+            cUsCloud_myjq('.skip-button').hide();
+            cUsCloud_myjq('#save').hide();
             
             var postData = {};
 
@@ -149,7 +152,6 @@
 				
 				
 		   /*}*/
-			
 			
             cUsCloud_myjq('.loadingMessage').show();
            
@@ -209,6 +211,9 @@
                             	
                             	cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox.close();
                             	cUsCloud_myjq(".img_loader").css({display:'none'});
+                            	
+                            	cUsCloud_myjq('.skip-button').show();
+            					cUsCloud_myjq('#save').show();
                             	
                             	// alert(data);
                                 message = "There is already an account with that email address. If you've forgotten your password, either reset it with the link provided or <a href='http://help.contactus.com' target='_blank'>Contact us</a>.";
