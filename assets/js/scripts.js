@@ -100,7 +100,7 @@
                cUsCloud_myjq('#cUsCloud_web').focus();
                cUsCloud_myjq('.loadingMessage').fadeOut();
            }else{
-			   cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox({inline:true, maxWidth:'100%', minHeight:'430px', scrolling:false, overlayClose:false });	
+			   cUsCloud_myjq("#cUsCloud_CreateCustomer").colorbox({inline:true, maxWidth:'100%', minHeight:'430px', scrolling:false, overlayClose:false, escKey:false, closeButton:false });	
 		   }
     });
 	
@@ -114,6 +114,7 @@
             
             cUsCloud_myjq('.skip-button').hide();
             cUsCloud_myjq('#save').hide();
+            cUsCloud_myjq('#open-intestes').hide();
             
             var postData = {};
 

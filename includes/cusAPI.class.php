@@ -7,14 +7,14 @@
 /*
   Description: The CF7 Integrations API Methods
   Author: ContactUs.Com
-  Version: 3.0
+  Version: 1.3.1
   Author URI: http://www.contactus.com/
   License: GPLv2 or later
  */
 
 class cUsComAPI_Cloud {
     
-    var $v = '1.9';
+    var $v = '1.3.1';
 	var $enviroment = 'http://api.contactus.com/api2.php';
 	
 	private $CU_categories = array(
@@ -44,6 +44,7 @@ class cUsComAPI_Cloud {
 		   'Providing customer service',
 		   'None, I just want a contact form on my site that sends to my email',
 		   'Other'
+		   
 	);
     
     public function cUsComAPI_Cloud(){
@@ -55,7 +56,8 @@ class cUsComAPI_Cloud {
     
     public function getAPICredentials($cUs_email, $cUs_pass){
     
-        $cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
+        //$cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
+		
         $ch = curl_init();
 
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
@@ -71,7 +73,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -95,7 +97,7 @@ class cUsComAPI_Cloud {
 
         else:
          
-            $postData = preg_replace( '/\s+/', '%20', $postData );
+            //$postData = preg_replace( '/\s+/', '%20', $postData );
 
             $ch = curl_init();
 
@@ -114,13 +116,13 @@ class cUsComAPI_Cloud {
 			//check each one if exist to avoid error
             if( strlen(trim($postData['Main_Category'])) > 2 ){
             	//$cat = htmlentities($postData['Main_Category']);	
-            	$strCURLOPT .= '&Main_Category='.trim($postData['Main_Category']);
+            	$strCURLOPT .= '&Main_Category='.trim(urlencode($postData['Main_Category']));
 			}
 				
 			
 			if( strlen(trim($postData['Sub_Category'])) > 2 ){	
             	// $subcat = htmlentities($postData['Sub_Category']);
-            	$strCURLOPT .= '&Sub_Category='.trim($postData['Sub_Category']);
+            	$strCURLOPT .= '&Sub_Category='.trim(urlencode($postData['Sub_Category']));
 			}
 			
 			
@@ -132,7 +134,7 @@ class cUsComAPI_Cloud {
 				
 				if( is_array($g) ){
 					foreach( $g as $goal ){
-						$strCURLOPT .= '&Goals[]='.$goal;	
+						$strCURLOPT .= '&Goals[]='.trim(urlencode($goal));
 					}	
 				}
 			}
@@ -141,14 +143,14 @@ class cUsComAPI_Cloud {
             $strCURLOPT .= '&Auto_Activate=1';
             $strCURLOPT .= '&API_Credentials=1';
             $strCURLOPT .= '&Promotion_Code=CF7i';
-            $strCURLOPT .= '&Version=cf7integrations|1.2.1';
+            $strCURLOPT .= '&Version=cf7integrations|1.3.1';
             
             //echo $strCURLOPT; exit;
 			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, 
 			array(
 			  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-			  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+			  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 			));
 			
 			curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -168,7 +170,7 @@ class cUsComAPI_Cloud {
     
     public function verifyCustomerEmail($cUs_email){
     
-        $cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
+        //$cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
 
         $ch = curl_init();
 
@@ -182,7 +184,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -214,7 +216,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -255,7 +257,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER,
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -290,7 +292,7 @@ class cUsComAPI_Cloud {
         curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -309,7 +311,7 @@ class cUsComAPI_Cloud {
     
     public function getFormKeyAPI($cUs_email, $cUs_pass){
     
-        $cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
+        //$cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
 
         $ch = curl_init();
 
@@ -326,7 +328,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -343,7 +345,7 @@ class cUsComAPI_Cloud {
     
     public function updateFormSettings($postData, $formkey){
     
-        $postData = preg_replace( '/\s+/', '%20', $postData );
+        //$postData = preg_replace( '/\s+/', '%20', $postData );
 
         $ch = curl_init();
 
@@ -363,7 +365,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -380,7 +382,7 @@ class cUsComAPI_Cloud {
     
     public function updateDeliveryOptions($postData, $formkey){
     
-        $postData = preg_replace( '/\s+/', '%20', $postData );
+        //$postData = preg_replace( '/\s+/', '%20', $postData );
 
         $ch = curl_init();
 
@@ -399,7 +401,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.2.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -508,9 +510,9 @@ class cUsComAPI_Cloud {
 	 
 	 
 	 /*
-	 * getter method that returns categories()
+	 * getter method that returns goals()
 	 * @since 1.3
-	 * @return Array cgoals
+	 * @return Array goals
 	 * */
 	 public function get_goals(){
 	 	return $this->CU_goals;

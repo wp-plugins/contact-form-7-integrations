@@ -3,17 +3,18 @@
  * Initialization Class for CF7 Integrations 
  * Company 		: ContactUs.com
  * Programmer	: ContactUs.com
- * Updated  	: 20140113
+ * Updated  	: 20140121
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
-require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
+require_once(dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php');
+require_once(dirname( __FILE__ ) . '/includes/cusAPI.class.php');
 
 
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'1.3'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.3';
+	private $cf7_cloud_db_version		= 	'1.3.1'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.3.1';
 		
 	/*
 	  'First_Name'				=> 	'First Name',
@@ -664,7 +665,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				      	    </tr>
 							 <tr>
 				      	  	  <td colspan="3"><strong>What’s Next?</strong>
-								<p>Once saved, your ContactUs.com account is new connected with your Contact Form 7 form. Visit your ContactUs.com admin panel to:   </p>
+								<p>Once saved, your ContactUs.com account is now connected with your Contact Form 7 form. Visit your ContactUs.com admin panel to:   </p>
 								<ul>
 									
 								<li><a href="<?php echo plugins_url('includes/toAdmin.php?iframe&uE='.$CF7i_API_Account.'&uC='.$CF7i_API_Key, __FILE__) ?>" target="_blank" rel="toDash" class="deep_link_action">View Your Stats</a></li>
@@ -917,6 +918,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		  	  
 		  $data = '';
 		  
+		  $cuapi = new cUsComAPI_Cloud(); 
+		  
 		  // get the option for this specific form and see which fields to send to CU API
 		  $cf7cloud_data = get_option('CU_cf7cloud_database_data_'.$wpcf7->posted_data['_wpcf7']);
 		  //print_r( $wpcf7->posted_data ); exit;
@@ -972,7 +975,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			        $ch = curl_init();
 			
 			        $strCURLOPT  = 'https://api.contactus.com/api2.php?';
-			        //$strCURLOPT  = 'http://test.contactus.com/api2.php?';
 			        
 			        $thekey 		= get_option('cUsCloud_settings_form_key');
 			        $credentials 	= get_option('cUsCloud_settings_userCredentials');
@@ -981,7 +983,16 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			        $strCURLOPT .= '&API_Key='.$credentials['API_Key']; // constants defined in config.php
 			        $strCURLOPT .= '&API_Action=postSubmitLead';
 					$strCURLOPT .= '&Form_Key='.$thekey.'&'; // constants defined in config.php
-
+					
+					
+					curl_setopt($ch, CURLOPT_HTTPHEADER,
+					array(
+					  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
+					  'X-ContactUs-Signature: CF7i|1.3.1|'.$cuapi->getIP(),
+					));
+					
+					curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		
 					$strCURLOPT = trim($strCURLOPT.$CU_string);
 					
 					// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
