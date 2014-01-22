@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ### Contact Form 7 Integrations | ContactUs.com ###
 >**Important:**
->This plugin is an **extension** to the popular [Contact Form 7 plugin](http://bit.ly/1dUEX9z/ "Go to Contact form 7 plugin"). If you **don't** currently use Contact Form 7, then this plugin is not for you. **If you need a complete contact form solution, you can consider using the** [**Contact Form Plugin**](http://bit.ly/1dPbnUD/ "Go to Contact Form by ContactUs.com plugin in wp.org"), also by ContactUs.com. 
+>This plugin is an **extension** to the popular [Contact Form 7 plugin](http://bit.ly/1dUEX9z "Go to Contact form 7 plugin"). If you **don't** currently use Contact Form 7, then this plugin is not for you. **If you need a complete contact form solution, you can consider using the** [**Contact Form Plugin**](http://bit.ly/1dPbnUD "Go to Contact Form by ContactUs.com plugin in wp.org"), also by ContactUs.com. 
 
 This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
 
