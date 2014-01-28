@@ -3,18 +3,18 @@
  * Initialization Class for CF7 Integrations 
  * Company 		: ContactUs.com
  * Programmer	: ContactUs.com
- * Updated  	: 20140121
+ * Updated  	: 20140128
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
 require_once(dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php');
 require_once(dirname( __FILE__ ) . '/includes/cusAPI.class.php');
 
-
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'1.3.1'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.3.1';
+	private $cf7_cloud_db_version		= 	'1.3.2'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.3.2';
+	private $API_url					=	'https://api.contactus.com/api2.php?';
 		
 	/*
 	  'First_Name'				=> 	'First Name',
@@ -57,9 +57,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	  'Generic_Field_10'		=>	'Generic Field 10'
 	);
 	
-	
-	private $cf7class;
-	
 	// just the constructor for the action settings
 	public function __construct(){
 	
@@ -85,11 +82,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			add_action('admin_print_scripts', array(&$this, 'Load_scripts'));
 			add_action('admin_print_scripts', array(&$this, 'Load_styles'));
 			
-			add_action( 'tgmpa_register', array(&$this, 'my_plugin_register_required_plugins' ));
-			
-			
+			//add_action( 'tgmpa_register', array(&$this, 'my_plugin_register_required_plugins' ));
 	}
-	
 	
 	function my_plugin_register_required_plugins() {
 
@@ -167,7 +161,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 
 }
 
-
 	/**
 	 * This should create the setting button in plugin CF7 cloud database
 	 **/
@@ -193,7 +186,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	    return $links;
 	}
 
-
 	/**
 	 * Private method to create the required options in database
 	 * @params none
@@ -213,8 +205,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 	 * @return none
 	 * @since 0.1
 	 **/
-	public function activate() 
-	{
+	public function activate(){
 		// Perform any databases modifications related to plugin activation here, if necessary
 		require_once (ABSPATH.'wp-admin/includes/upgrade.php');
 		global $wpdb;
@@ -284,8 +275,9 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			wp_register_script('my-scripts', WP_PLUGIN_URL.'/contact-form-7-integrations/assets/js/scripts.js');
 			
 			wp_enqueue_style( 'colorbox', plugins_url('includes/colorbox/colorbox.css', __FILE__), false, '1');
-			
 			wp_enqueue_style( 'other_info_styles', plugins_url('assets/css/styles2.css', __FILE__), false, '1');
+			wp_enqueue_style('thickbox');
+			
 			wp_register_script( 'other_info_scripts', plugins_url('assets/js/main.js?pluginurl=' . dirname(__FILE__), __FILE__), array('jquery'), '1.0', true);
 			wp_register_script( 'colorbox', plugins_url('includes/colorbox/jquery.colorbox-min.js', __FILE__), array('jquery'), '1.4.33', true);
 			
@@ -294,10 +286,17 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				wp_enqueue_script('my-scripts');
 				wp_enqueue_script('other_info_scripts');
 				wp_enqueue_script('colorbox');
+				wp_enqueue_script('thickbox');
 			}
 		}
 			
 		
+		/**
+		 * Method in charte to load plugin specific styles
+		 * @since version 1
+		 * @params none
+		 * @return none 
+		 **/
 		public function Load_styles(){
 			global $current_screen;	// check we are in our CF7 integrations plugin page
 			if( $current_screen->id == 'toplevel_page_cf7-integrations' || $current_screen->id == 'toplevel_page_wpcf7' ){
@@ -343,10 +342,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					
 		public function wpcf7_cf7cloud_add_contactus_analytics($args)
 		{
-						//print_r($args); exit;
 		?>
-			
-		<script type="text/javascript">
+		<script>
 		//<![CDATA[
 			jQuery(document).ready(function(){
 				
@@ -359,57 +356,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 						jQuery('#cf7cloud-formdata').hide('fast');
 					}
 				});
-	
-				// data to be used to add new custom fields.
-				function new_tr(tr_num){
-					var new_row ='<tr id="row_'+tr_num+'">'+
-				      	  	  '<td>'+
-				      	  	  	'Select Contact Form 7 field:<br />'+
-				      	  	  	'<select name="cf7cloud_custom_field_name[]">';
-				      	  	  	<?php
-				      	  	  	  $the_cf7_fields = get_option('CU_cf7_cloud_mapped_fields_'.$_GET['post']);
-				      	  	  	  foreach( $the_cf7_fields as $key => $value ){
-				      	  	  	  	echo "new_row += '<option value=\"$value\">$value</option>'; \n";
-				      	  	  	  }
-				      	  	  	?>
-				      	  	  	
-				      	  	  new_row += '</select>'+
-				      	  	  '</td>'+
-				      	  	  '<td>'+
-				      	  	  	'Select ContactUs.com field to associate:<br />'+
-				      	  	  	'<select name="cf7cloud_custom_field_select[]" id="cf7cloud_customfields">';
-				      	  	  	  <?php
-				      	  	  	  foreach( $this->CU_API_fields as $key => $value ){
-				      	  	  	  	echo "new_row += '<option value=\"$key\">$value</option>'; \n";
-				      	  	  	  }
-				      	  	  	  ?>
-				      	  	  	new_row += '</select>'+
-				      	  	  '</td>'+
-				      	  	  '<td>'+
-				      	  	  '<span class="tr_delete" id="'+tr_num+'">[ X ]</span>'+
-				      	  	  	//'<!-- <input type="button" id="" name="" value="Add Relation" /> -->'+
-				      	  	  '</td>'+
-				      	    '</tr>';
-				      	    
-				      	    return new_row;
-					}
-								
-				// function to delete selected row
-				jQuery('span.tr_delete').live('click', function(){
-					if (!confirm("Do you want to delete this custom field")){
-      					return false;
-    				}
-					var attribute = jQuery(this).attr('id');
-					jQuery("#row_"+attribute).remove();
-					
-				});
-	
-				// add rows to custom fields
-				jQuery('#cf7cloud_custom_fields_link').on('click', function() {
-				  var actual_value = parseInt(jQuery('#trcount').val());
-				  jQuery('#trcount').val(parseInt(actual_value+1));
-			      jQuery('.cf7cloud_custom_fields_table tr:last').after( new_tr(jQuery('#trcount').val()) );
-			    });
 
 			    // function to validate email address
 			    function validate_email(email) {
@@ -434,7 +380,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				$cf7_cloud_activated = get_option('cf7_cloud_database_active');
 				$fkey = get_option('cUsCloud_settings_form_key');
 				//echo $fkey;
-
 			?>
 				
 			<input type="hidden" name="trcount" id="trcount" value="<?php echo (is_array($the_data['customs'])?count($the_data['customs']):1 ); ?>" />
@@ -452,7 +397,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				}
 				
 				?>
-				
 				
 			<div class="pseudo-hr"></div>
 		
@@ -481,15 +425,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					
 				<br /><br />
 				 
-				 <iframe src="//player.vimeo.com/video/79802852" width="356" height="195" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-				 
-				<!--<iframe width="350" height="300" src="https://vimeo.com/79802852" frameborder="0" allowfullscreen></iframe>--><br />
-				  
-				  <!--
-				  <input type="button" value="View your Contacts" id="viewyourcontacts" name="viewyourcontacts" class="action_orange_button button_redirect"><br />
-				  <input type="button" value="View Your Stats" id="viewyourstats" name="viewyourstats" class="action_orange_button button_redirect"><br />
-				  <input type="button" value="Manage Your Deliveries" id="managedeliveries" name="managedeliveries" class="action_orange_button button_redirect"><br />
-				  -->
+				 <iframe src="//player.vimeo.com/video/79802852" width="356" height="195" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				  
 				</div>
 				<!-- / insert video tutorial -->
@@ -550,8 +486,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				    </tr>
 				    <?php
 				    // check if custom forms fields available to show or not
-				    // print_r($the_data['customs']); //exit;
-				    // echo count( $the_cf7_fields )-2;
 				    $count_mapper = 0; // variable to compare how many custom fields are being displayed already and not allow more than $total-2
 				    
 				    if(isset($the_data['customs']) && is_array($the_data['customs'])){
@@ -563,7 +497,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				        break;
 				      }	
 				      	
-				    // echo $key;
 				    ?>
 						<tr id="row_<?php echo $counter; ?>">
 				      	  	  <td>
@@ -585,8 +518,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 											$message_present = TRUE;
 										  }else
 										  	echo('<option value="'.$xvalue.'">'.$xvalue.'</option>');
-										    
-									  
 									  }
 									}
 						      		?>
@@ -624,7 +555,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				      	  	  	</select>
 				      	  	  </td>
 				      	  	  <td>&nbsp;
-				      	  	    <!--<span class="tr_delete" id="<?php echo $counter; ?>">[ X ]</span>-->
 				      	  	  </td>
 				      	    </tr>
 	
@@ -654,7 +584,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					<?php
 						// get api account and api key
 						$data = get_option('cUsCloud_settings_userCredentials');
-						//print_r($data);
 						$CF7i_API_Account = $data['API_Account'];
 						$CF7i_API_Key 	= $data['API_Key'];
 					?>
@@ -666,11 +595,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 							 <tr>
 				      	  	  <td colspan="3"><strong>What’s Next?</strong>
 								<p>Once saved, your ContactUs.com account is now connected with your Contact Form 7 form. Visit your ContactUs.com admin panel to:   </p>
-								<ul>
-									
+								<ul>	
 								<li><a href="<?php echo plugins_url('includes/toAdmin.php?iframe&uE='.$CF7i_API_Account.'&uC='.$CF7i_API_Key, __FILE__) ?>" target="_blank" rel="toDash" class="deep_link_action">View Your Stats</a></li>
-								 <!-- <li><a href="#">View Your Stats</a></li>
-								  <li><a href="#">Integration 3rd Party Software</a></li> -->
 								</ul>			
 							  </td>
 				      	    </tr>
@@ -713,13 +639,10 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		* @since 0.1
 		* @returns Null
 		*/
-		public function cf7cloud_save_form($args)
-		{
+		public function cf7cloud_save_form($args){
+				
 			// create an option for the custom_cf7_fields that come
 			$cf7_customs = $this->_get_cf7_inputs($args->form);
-			
-			//print_r( $_POST ); exit;
-			// print_r(get_option( 'CU_cf7cloud_database_data_'.$_POST['post_ID'] )); exit;
 						
 			$prev_url = $_SERVER["HTTP_REFERER"];
 			
@@ -727,10 +650,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			$error_customs 	= 'The following CF7 fields were detected duplicates in your selects: ';
 			$error_CUapi 	= 'The following ContactUs.com fields were detected as duplicates in your selection: ';
 			$string_error 	= '';
-			
-			//print_r( $cf7_customs ); exit;
-
-			//print_r( $_POST['cf7cloud_custom_field_name'] ); exit;
 			
 			if( (int)$_POST['wpcf7-cf7cloud-active'] == 1 ){
 				
@@ -764,10 +683,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 						//echo $value . "\n";
 					}
 					
-					//exit;
-					
-					//print_r($_POST); exit;
-					
 					// **************************
 					// THIS IS TO AVOID DUPLICATES IN CF7 FIELDS.
 					//$counts = array_count_values( $_POST['cf7cloud_custom_field_name'] );
@@ -785,8 +700,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					// THIS IS TO AVOID DUPLICATES IN CUAPI FIELDS.
 					//$counts = array_count_values( $_POST['cf7cloud_custom_field_name'] );
 					$cf7_CUapi_duplicate = array_flip(array_filter( array_count_values($_POST['cf7cloud_custom_field_select']), create_function('$x', 'return $x > 1; ')));
-		
-					//print_r( $cf7_CUapi_duplicate ); exit;
 					
 					// check if duplicates for cf7 customs
 					if( !empty($cf7_CUapi_duplicate) ){
@@ -800,13 +713,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 
 					$the_data['Full_Name'] = esc_sql($_POST['cf7cloud_name']);
 					$the_data['Email'] = esc_sql($_POST['cf7cloud_email']);
-					//$the_data['Primary_Phone'] = esc_sql($_POST['cf7cloud_phone']);
-					
-					// echo( $cf7_fields_quantity ); exit;	
-					// echo $cf7_customs[2]; exit;
-					// $field_count = 0;
-					
-					//echo count($cf7_customs); exit;
 					
 					// ***********************************************
 					// check first if custom fields have been created
@@ -815,19 +721,15 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 						//print_r( get_option('CU_cf7_cloud_mapped_fields_'.$_POST['post_ID'] ) ); exit;
 						foreach( $_POST['cf7cloud_custom_field_name'] as $xkey => $xvalue ){
 							//if( $xvalue != 'your-name' && $xvalue != 'your-email' ){
-								$the_data['customs'][$xvalue] = (isset($_POST['cf7cloud_custom_field_select'][$xkey])?esc_sql($_POST['cf7cloud_custom_field_select'][$xkey]):'' );
+								$the_data['customs'][$xvalue] = ( isset($_POST['cf7cloud_custom_field_select'][$xkey])?esc_sql($_POST['cf7cloud_custom_field_select'][$xkey]):'' );
 								//$field_count++;
 							//}
 						}
 						
 						// check to see if no other fields have been added to CF7 textarea
-						
 						$simplify 	= array();
 						$p 			= get_option('CU_cf7cloud_database_data_'.$_POST['post_ID']);
 						$pc 		= $p['customs'];
-						
-						// $pv = array_values($p);
-						// print_r($p); exit;
 
 						// current data stored in database array
 						foreach($p as $item_id => $item_value){
@@ -847,10 +749,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 						// ***************************************
 						// if actual quantity of stored custom fields is not the same as the ones comming, some where added or deleted.
 						if( (int)$cf7_fields_quantity != (int)$actual_custom_amount ){
-								
-							// print_r( $simplify );
-							// print_r( $cf7_customs );
-							// exit;
 							
 							// check for fields to be deleted in stack
 							$to_delete = array();
@@ -858,8 +756,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 								if( !in_array($value, $cf7_customs) )
 									$to_delete[] = $value;
 							}
-							
-							//print_r($to_delete); exit;
 
 							// check for fields to be added to stack
 							$to_add = array();
@@ -873,8 +769,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 								if( array_key_exists($value, $the_data['customs']) )
 									unset($the_data['customs'][$value]);
 							}
-							
-							//print_r($to_add); exit;
 							
 							// add the new fields
 							foreach($to_add as $key => $value){
@@ -922,7 +816,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		  
 		  // get the option for this specific form and see which fields to send to CU API
 		  $cf7cloud_data = get_option('CU_cf7cloud_database_data_'.$wpcf7->posted_data['_wpcf7']);
-		  //print_r( $wpcf7->posted_data ); exit;
 		  
 		  // get if this form is active to send data to admin.contactus.com
 		  $is_active = get_option('CU_cf7cloud_database_form_'.$wpcf7->posted_data['_wpcf7'].'_active');
@@ -930,13 +823,11 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		  // **************************
 		  // check for unmapped fields and delete from array that is used to send to CU API
 		  $cf7cloud_data['customs'] = $this->_clear_unmapped($cf7cloud_data['customs']);
-		  
 
 		  	// **************************************
 		  	// first check if this form has any Analytics associated
 		  	if( $cf7cloud_data && is_array($cf7cloud_data) && $is_active ){
 				  
-				  // print_r( $cf7cloud_data); exit;
 				  $CU_string = '';
 					
 					// check if this form has any CF7 Cloud database analytics associated to it
@@ -966,16 +857,12 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 									
 					}
 					
-					//echo $CU_string; exit;
-					
 					// remove last character
 					$CU_string = substr_replace($CU_string ,"",-1);
-					//$CU_string = urlencode($CU_string);
 			
 			        $ch = curl_init();
 			
-			        $strCURLOPT  = 'https://api.contactus.com/api2.php?';
-			        
+			        $strCURLOPT  	= $this->API_url;
 			        $thekey 		= get_option('cUsCloud_settings_form_key');
 			        $credentials 	= get_option('cUsCloud_settings_userCredentials');
                    
@@ -983,7 +870,6 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			        $strCURLOPT .= '&API_Key='.$credentials['API_Key']; // constants defined in config.php
 			        $strCURLOPT .= '&API_Action=postSubmitLead';
 					$strCURLOPT .= '&Form_Key='.$thekey.'&'; // constants defined in config.php
-					
 					
 					curl_setopt($ch, CURLOPT_HTTPHEADER,
 					array(
@@ -1012,7 +898,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		* This method is in charge to clear the unmapped fields from the array
 		* @params Array customs fields to check for unmapped
 		* @since 0.1
-		* @returns Array with unmapped field unset
+		* @return Array with unmapped field unset
 		*/
 		private function _clear_unmapped($customs){
 			
@@ -1024,67 +910,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 			return $customs;
 			
 		}
-		
-		
-		
-			/*
-     * Method in charge to return Signu Up categories and Sub Categories
-     * @since 4.0.1
-     * @return array
-     */
-    public function getCategoriesSubs() {
-
-	       $aryCategoriesSubs = array(
-		   'Agents' => array('Insurance Agent','Mortgage Broker','Real Estate Agent','Travel Agent','Other Agent',),
-		   'Business Services' =>   array('Advertising / Marketing / PR','Art / Media / Design','Customer Service','Finance','Food / Beverage / Hospitality','Human Resources','IT','Legal','Logistics / Moving','Manufacturing','Medical / Health','Sales','Telecom','Utilities','Web Design / Development','Other Business Services',),
-		   'Content'   => array('Blog','Entertainment','Finance','Jobs','News','Politics','Sports','Other',),
-		   'Education' =>   array('Career Training','For-Profit School','Language Learning','Non-Profit School','Recreational Learning','Tutoring / Lessons',),
-		   'Freelancers'   => array('Actor / Model','Band / Musician','Business Consultant','Graphic Designer','Marketing Consultant','Software Engineer','Web Designer / Developer','Writer','Video Production','Other Independent Consultant',),
-		   'Home Services' =>   array('Audio / Video','Carpet Cleaning','Catering','Contractor','Dog Walking / Pet Sitting','Electrical','Furniture Repair','Gutter Cleaning','Handy Man/Repair','Home Security','House Cleaning','HVAC Services','Interior Design','Landscaping / Lawncare','Locksmith','Moving','Painting','Pest Control','Plumbing','Window Washing','Window Repair','Other Home Service',),
-		   'Non-Profit or Community Group' =>   array('Charity','Community Organization','Educational Organization','Government Organization','Health Organization','Political Organization','Religious Organization','Other Non-Profit',),
-		   'Offline Retail' =>  array('Apparel','Auto Sales','Auto Services','Electronics','Flowers and Gifts','Food and Beverage','Furniture','Jewelry','Music','Pets','Restaurants','Salons / Barbers','Spa','Specialty Items','Toys / Games','Other Local',),
-		   'Online Retail'=>   array('Apparel','Electronics','Flowers and Gifts','Food and Beverage','Invitations','Gifts','Pets','Specialty Items','Toys / Games','Other Online',),
-		   'Other Service Industry'=>  array('Events','Recreation','Other',),
-		   'Personal Services'=>   array('Beauty (hair, nails, etc.)','Child Care','Day Care','Massage Therapist','Personal Trainer','Photographers','Tutoring / Lessons','Other Personal Service',),
-		   'Professional Services'=>   array('Accountant','Architect / Engineering','Admin / Office','Computer Repair / IT Help','Dentist','Doctor','Education','Financial Planning','Lawyer','Life Coach','Logistics / Moving','Medical / Health','Optometrist / Optician','Security','Skilled Trade','Software','Therapist','Transportation','Veterinarian','Wedding / Special Events','Other Professional Service',),
-		   'Travel and Hospitality'=>  array('Car Rental','Excursion','Hotel / Motel','Tours','Transportation','Vacation Homes','Vacation Packages',),
-		   'Web Service'=> array('Consumer Web Service','Small Business Web Service','Enterprise Web Service',)
-		  );
-
-        	return $aryCategoriesSubs;
-    }
-    
- 
-	 
-	 /*
-     * Method in charge to return Signu Up Goals
-     * @since 4.0.1
-     * @return array
-     */
-    public function getGoals() {
-
-        $aryGoals = array(
-		   'Generating online sales',
-		   'Generating offline sales',
-		   'Generating sales leads',
-		   'Generating phone calls',
-		   'Growing your email marketing list',
-		   'Providing customer service',
-		   'None, I just want a contact form on my site that sends to my email',
-		   'Other',
-		);
-
-        return $aryGoals;
-    }
-		
-		
-		
-		
-		
-		
-		
-		
-		
+						
 } // end class definition
 
 /* CF7 Cloud Database loader  */

@@ -14,8 +14,10 @@
 
 class cUsComAPI_Cloud {
     
-    var $v = '1.3.1';
-	var $enviroment = 'http://api.contactus.com/api2.php';
+    protected $v = '1.3.1';
+	protected $enviroment 	= 'http://api.contactus.com/api2.php';
+	protected $API_account 	= 'AC132f1ca7ff5040732b787564996a02b46cc4b58d';
+	protected $API_key 		= 'cd690cf4f450950e857b417710b656923cf4b579';
 	
 	private $CU_categories = array(
 		'Agents' => array('Insurance Agent','Mortgage Broker','Real Estate Agent','Travel Agent','Other Agent'),
@@ -35,7 +37,6 @@ class cUsComAPI_Cloud {
 	);
 	
 	private $CU_goals = array(
-		
 		   'Generating online sales',
 		   'Generating offline sales',
 		   'Generating sales leads',
@@ -43,14 +44,12 @@ class cUsComAPI_Cloud {
 		   'Growing your email marketing list',
 		   'Providing customer service',
 		   'None, I just want a contact form on my site that sends to my email',
-		   'Other'
-		   
+		   'Other'   
 	);
     
     public function cUsComAPI_Cloud(){
         $cUs_email = '';
         $cUs_formkey = '';
-        
         return TRUE;
     }
     
@@ -59,14 +58,14 @@ class cUsComAPI_Cloud {
         //$cUs_email = preg_replace( '/\s+/', '%20', $cUs_email );
 		
         $ch = curl_init();
-
+		
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
         $strCURLOPT  = $this->enviroment;
-        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
+        $strCURLOPT .= '?API_Account='.$this->API_account;
+    	$strCURLOPT .= '&API_Key='.$this->API_key;
         $strCURLOPT .= '&API_Action=getAPICredentials';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
-        $strCURLOPT .= '&Password=' . trim(urlencode($cUs_pass));
+        $strCURLOPT .= '&Password=' . urlencode(trim($cUs_pass));
 		
 		//echo $strCURLOPT; exit;
 		
@@ -77,14 +76,14 @@ class cUsComAPI_Cloud {
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-			
+		
         curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $content = curl_exec($ch);
         curl_close($ch);
-
+		
         return $content;
     }
     
@@ -102,13 +101,13 @@ class cUsComAPI_Cloud {
             $ch = curl_init();
 
             $strCURLOPT  = $this->enviroment;
-            $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-    		$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
-            $strCURLOPT .= '&API_Action=createSignupCustomer';
-            $strCURLOPT .= '&First_Name='.trim(urlencode($postData['fname']));
-            $strCURLOPT .= '&Last_Name='.trim(urlencode($postData['lname']));
+        	$strCURLOPT .= '?API_Account='.$this->API_account;
+    		$strCURLOPT .= '&API_Key='.$this->API_key;            
+    		$strCURLOPT .= '&API_Action=createSignupCustomer';
+            $strCURLOPT .= '&First_Name='.urlencode(trim($postData['fname']));
+            $strCURLOPT .= '&Last_Name='.urlencode(trim($postData['lname']));
             $strCURLOPT .= '&Email='.trim($postData['email']);
-            $strCURLOPT .= '&Password='.trim(urlencode($postData['password']));
+            $strCURLOPT .= '&Password='.urlencode(trim($postData['password']));
             $strCURLOPT .= '&Form_Type=post';
             $strCURLOPT .= '&Website='.esc_url(trim($postData['website']));
 			
@@ -116,13 +115,13 @@ class cUsComAPI_Cloud {
 			//check each one if exist to avoid error
             if( strlen(trim($postData['Main_Category'])) > 2 ){
             	//$cat = htmlentities($postData['Main_Category']);	
-            	$strCURLOPT .= '&Main_Category='.trim(urlencode($postData['Main_Category']));
+            	$strCURLOPT .= '&Main_Category='.urlencode(trim($postData['Main_Category']));
 			}
 				
 			
 			if( strlen(trim($postData['Sub_Category'])) > 2 ){	
             	// $subcat = htmlentities($postData['Sub_Category']);
-            	$strCURLOPT .= '&Sub_Category='.trim(urlencode($postData['Sub_Category']));
+            	$strCURLOPT .= '&Sub_Category='.urlencode(trim($postData['Sub_Category']));
 			}
 			
 			
@@ -134,7 +133,7 @@ class cUsComAPI_Cloud {
 				
 				if( is_array($g) ){
 					foreach( $g as $goal ){
-						$strCURLOPT .= '&Goals[]='.trim(urlencode($goal));
+						$strCURLOPT .= '&Goals[]='.urlencode(trim($goal));
 					}	
 				}
 			}
@@ -176,9 +175,9 @@ class cUsComAPI_Cloud {
 
         $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
-        $strCURLOPT .= '&API_Action=verifyCustomerEmail';
+        $strCURLOPT .= '?API_Account='.$this->API_account;
+    	$strCURLOPT .= '&API_Key='.$this->API_key;        
+    	$strCURLOPT .= '&API_Action=verifyCustomerEmail';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
 		
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
@@ -207,9 +206,9 @@ class cUsComAPI_Cloud {
 
         $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
-        $strCURLOPT .= '&API_Action=getTemplatesDataAll';
+        $strCURLOPT .= '?API_Account='.$this->API_account;
+    	$strCURLOPT .= '&API_Key='.$this->API_key;  
+    	$strCURLOPT .= '&API_Action=getTemplatesDataAll';
         $strCURLOPT .= '&Form_Type=' . trim($formType);
         $strCURLOPT .= '&Selection_Type=' . trim($selType);
 		
@@ -317,11 +316,11 @@ class cUsComAPI_Cloud {
 
         $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
-        $strCURLOPT .= '&API_Action=getFormKeysData';
+        $strCURLOPT .= '?API_Account='.$this->API_account;
+    	$strCURLOPT .= '&API_Key='.$this->API_key;        
+    	$strCURLOPT .= '&API_Action=getFormKeysData';
         $strCURLOPT .= '&Email=' . trim($cUs_email);
-        $strCURLOPT .= '&Password=' . trim(urlencode($cUs_pass));
+        $strCURLOPT .= '&Password=' . urlencode(trim($cUs_pass));
 
         //echo $strCURLOPT; exit;
 
@@ -388,11 +387,11 @@ class cUsComAPI_Cloud {
 
         $strCURLOPT  = $this->enviroment;
         //$strCURLOPT  = 'http://test.contactus.com/api2.php';
-        $strCURLOPT .= '?API_Account=AC132f1ca7ff5040732b787564996a02b46cc4b58d';
-    	$strCURLOPT .= '&API_Key=cd690cf4f450950e857b417710b656923cf4b579';
-        $strCURLOPT .= '&API_Action=updateDeliveryOptions';
+        $strCURLOPT .= '?API_Account='.$this->API_account;
+    	$strCURLOPT .= '&API_Key='.$this->API_key;        
+    	$strCURLOPT .= '&API_Action=updateDeliveryOptions';
         $strCURLOPT .= '&Email=' . trim($postData['email']);
-        $strCURLOPT .= '&Password=' . trim(urlencode($postData['password']));
+        $strCURLOPT .= '&Password=' . urlencode(trim($postData['password']));
         $strCURLOPT .= '&Form_Key=' . trim($formkey);
         $strCURLOPT .= '&MailChimp_Delivery_Enabled=1';
         $strCURLOPT .= '&MailChimp_Delivery_Api_Key=' . trim($postData['MC_apikey']);

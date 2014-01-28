@@ -4,13 +4,13 @@
  * File to display the view in CF7
  * Created: 2013-11-12
  * Company: ContactUs.com
- * Updated: 20131114
+ * Updated: 20140127
  **/
 extract($data);
 // check if this plugin has been activated and validated with CU , otherwise don't show this error message
 $cf7_cloud_activated = get_option('cf7_cloud_database_active');
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[	
 	var ADMIN_AJAX_URL 	= 	"<?php echo ADMIN_AJAX_URL; ?>";
 	var template_url 	= 	"<?php echo get_bloginfo('template_url'); ?>";
@@ -31,8 +31,6 @@ $cf7_cloud_activated = get_option('cf7_cloud_database_active');
   ?>
   	
   	<?php if ( strlen($credentials['API_Key']) && strlen($credentials['API_Account']) ){ ?><a href="<?php echo plugins_url('contact-form-7-integrations/includes/toAdmin.php?iframe&uE='.$credentials['API_Account'].'&uC='.$credentials['API_Key']) ?>" target="_blank" rel="toDash" class="action_orange_button btn">Form Control Panel</a><?php } ?>
-  	
-  	<!-- <input type="button" value="Go to my Dashboard Analytics" id="gotodashboard" name="gotodashboard" class="action_orange_button " onclick="javascript:window.open('http://admin.contactus.com/')"> -->
 
   <?php
   }
@@ -41,13 +39,17 @@ $cf7_cloud_activated = get_option('cf7_cloud_database_active');
 	<a href="http://on.fb.me/HqI1hd" target="_blank" title="Follow Us on Facebook for new product updates"><img src="<?php echo plugins_url() ?>/contact-form-7-integrations/assets/images/facebook_icon.png" width="32" height="34" alt="Facebook" /></a>
 	<a href="http://bit.ly/18DW6O4" target="_blank" title="Follow Us on Google+"><img src="<?php echo plugins_url() ?>/contact-form-7-integrations/assets/images/googeplus_icon.png" width="32" height="34" alt="Google+" /></a>
 	<a href="http://linkd.in/1ivr9kK" target="_blank" title="Follow Us on LinkedIn"><img src="<?php echo plugins_url() ?>/contact-form-7-integrations/assets/images/linkedin_icon.png" width="32" height="34" alt="Linked In" /></a>
-	<!-- <a href="#"><img src="<?php echo plugins_url() ?>/contact-form-7-integrations/assets/images/pinterest_icon.png" width="32" height="34" alt="Pinterest" /></a> -->
 	<a href="http://bit.ly/16NxNh5" target="_blank" title="Follow Us on Twitter"><img src="<?php echo plugins_url() ?>/contact-form-7-integrations/assets/images/twitter_icon.png" width="32" height="34" alt="Twitter" /></a>
 	<a href="http://bit.ly/1dPwnub" target="_blank" title="Find tutorials on our Youtube channel"><img src="<?php echo plugins_url() ?>/contact-form-7-integrations/assets/images/youtube_icon.png" width="32" height="34" alt="Youtube" /></a>
 </div>
 <!-- / plugin admin header -->
 
 <div id="container_cf7clouddatabase">
+	
+	<?php
+	  	if ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+		  //echo('Contact Form 7 is installed and active!');	  
+	?>
 
 <!-- left side container -->
 <div id="CUintegrations_toleft">
@@ -64,18 +66,13 @@ $cf7_cloud_activated = get_option('cf7_cloud_database_active');
     // get the custom data for this contact form
     // $credentials = get_option('cUsCloud_settings_userCredentials');
     $ukey = get_option('cUsCloud_settings_form_key');
-    // print_r( $credentials );
-    // echo('<br />');
-    // print_r(get_option('cUsCloud_settings_form_key'));
-    // print ( $cred['API_Account'] );
 
-
-	if( !$ukey ){	
-	    //echo $cf7_cloud_activated; 
+	if( !$ukey ){
 	?>
 	<div class="first_step_clouddb">
 		
 	  <div id="cf7cloud_welcome">
+	  	
 	    <h1>Welcome to Contact Form 7 Integrations</h1>
 		<h2>By ContactUs.com</h2>
 	    
@@ -130,7 +127,6 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
   <input type="button" class="action_orange_button button_redirect" name="buttoncontinue" id="buttoncontinue" value="Click here to continue" style="float:right;" />
   
   ');
-   //echo('');
 }
 ?>
 
@@ -251,8 +247,6 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
                         $cUsComAPI_Cloud = new cUsComAPI_Cloud();
 
                         $aryCategoriesAndSub = $cUsComAPI_Cloud->get_categories();
-						
-						//print_r( $aryCategoriesAndSub );
 
                         if(is_array($aryCategoriesAndSub)){ ?>
                         <ul id="customer-categories">
@@ -317,14 +311,11 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 				<!-- input the category and subcategory data -->
 				<input type="hidden" value="" name="CU_category" id="CU_category" />
 				<input type="hidden" value="" name="CU_subcategory" id="CU_subcategory" />
-				<!-- <input type="hidden" value="" name="CU_goals" id="CU_goals" /> -->
 				
 				<div id="goals_added">
 					
-					
 				</div>
 				
-
 				</form>
 				<br /><br /><br />
 			</div>
@@ -332,12 +323,6 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 			
 			</div>
             <!-- / CATS SUBCATS AND GOALS -->
-	
-	
-	
-	
-	
-	
 
 	<div id="createpostform">
 		
@@ -355,7 +340,7 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 	    	</tr>
 	        <tr>
 	          <td valign="top"><img src="<?php echo plugins_url(); ?>/contact-form-7-integrations/assets/images/create_post_form_instructions.jpg" width="283" height="268" alt="How to Create a POST form in admin.contactus.com" /></td>
-	          <td><!-- <iframe width="350" height="300" src="//www.youtube.com/embed/FSO8Jq5n2F0" frameborder="0" allowfullscreen></iframe> -->&nbsp;</td>
+	          <td>&nbsp;</td>
 	        </tr>
 	    </table>
 	 
@@ -419,45 +404,44 @@ Once this is done, the plugin will automatically create a new form in your Conta
 
 </div>
 <!-- / right side container -->
+<?php
 
-<!--
-<table class="table_steps">
-  <tr>
-  <td width="45"><strong>Step 1</strong> </td>
-  <td>Create a free ContactUs.com account below (or login if you already have one)<br />
-          <em>Once this is down, the plugin will automatically create a new form in your ContactUs.com that will be matched against your first CF7 form</em>
-</td>
-</tr>
+}else{
+	
+?>
 
-<tr>
- <td><strong>Step 2 </strong></td>
-  <td>Open Your Contact Form 7 Installation (which you can do from Contact Form 7 Integrations)
-</td>
-</tr>
+<div id="CUintegrations_toleft_wide">
+	<h1><img src="<?php echo plugins_url('../assets/images/engranaje.png', __FILE__); ?>" width="42" height="55" alt="ContactUs.com" />It seems you don’t have Contact Form 7 (CF7) installed</h1>
+	<p style="margin:-20px 0px 10px 52px;">Contact Form 7 Integrations by ContactUs.com is an extension for the CF7 plugin to integrate with ContactUs.com and other supported third-party software. It requires an installation of CF7 to work. 
+</p>
 
-<tr>
- <td><strong>Step 3 </strong></td>
-  <td>Choose your Contact Form 7 Form (if you have more than one)
-</td>
-</tr>
+<p><h2>If you are looking for a standalone contact form solution, we recommend the all-in-one Contact Form by ContactUs.com</h2></p>
 
-<tr>
- <td><strong>Step 4</strong> </td>
-  <td>Map Your Fields between Contact Form 7 and ContactUs.com
-</td>
-</tr>
+<div id="buttons_container">
+	
+	<div class="cf7i_buttons">
+		<a id="install_cf" href="http://wordpress.org/plugins/contactuscom/" target="_blank">Learn More about Contact Form by ContactUs.com</a>
+	</div>
+	
+	<div class="cf7i_buttons">
+		<a id="install_cf7" class="thickbox" href="<?php echo get_bloginfo('url'); ?>/wp-admin/plugin-install.php?tab=plugin-information&plugin=contactuscom&TB_iframe=true&width=640&height=565">Install Contact Form by ContactUs.com </a>
+		<p style="font-size:0.9em; display:inline-block; float:left; clear:right; margin:0px; width:100%;">*This will install the ContactUs Contact Form plugin from wordpress.org</p>
+	</div>
+	
+</div>
 
-<tr>
- <td><strong>Step 5 </strong></td>
-  <td>Track Your Results inside ContactUs.com
-</td>
-</tr>
+<p>Contact Form by ContactUs.com is a popular, hosted contact form solution that inserts forms that you create within the ContactUs.com form builder onto your WordPress website.  In addition to the form, it features callout tabs to increase form submissions, has 20+ built-in software integrations, offers professionally designed templates, and brings with it lots of customization options.  With the WordPress plugin, it supports easy, code-free implementation, as well as placement of short-codes.
+</p>
 
-</table>
-<br />
--->
+<p class="cf7_download_link">To download <strong>"Contact Form 7"</strong> instead, <a class="thickbox" href="<?php echo get_bloginfo('url'); ?>/wp-admin/plugin-install.php?tab=plugin-information&plugin=Contact-Form-7&TB_iframe=true&width=640&height=565">click here</a></p>
 
+<p class="cf7_download_link">(Once you install "Contact form 7", you can click on <strong>"Contact Form 7 integrations"</strong> settings and continue Contact Form 7 integrations setup).</p>
 
+</div>
 
+<!-- <div id="CUintegrations_toright2"></div> -->
 
-
+<?php
+} // end else that check if Contact Form 7 is active.
+?>
+</div>

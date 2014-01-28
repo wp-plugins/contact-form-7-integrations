@@ -52,6 +52,10 @@
 	color:#2888E5;
 }
 
+
+
+
+
 #CUintegrations_toright > img {
 	margin:0px 20px 0px 0px;
 }
@@ -554,6 +558,8 @@ div.message {
 	border:0px;
 	cursor:pointer;
 	text-decoration:none;
+	z-index: 100;
+	position:relative;
 }
 
 
@@ -698,11 +704,138 @@ label.labelform {
  
  
  
+ /****************************************************/
+/* styles for when CF7 is not installed/activated */
+
+#CUintegrations_toleft_wide {
+	width:99%; 
+	float:left; 
+	background:#ffffff; 
+	display:block; 
+	overflow: hidden;
+	border:none;
+	padding:0px 5px 5px 10px;
+	margin:-15px 0px 0px -10px;
+	z-index:99;
+	position:relative;
+}
+
+/*#CUintegrations_toleft_wide {
+	margin:-20px 0px 10px 50px;
+}*/
+	
+	
+
+#CUintegrations_toleft_wide h1 {
+	color:#07267E;
+}
+
+#CUintegrations_toleft_wide img{
+	vertical-align:middle; margin:0px 10px 0px 0px;
+}
+
+#CUintegrations_toleft_wide p {
+	font-size:1.2em;
+	line-height:23px;
+}
+
+/*
+#CUintegrations_toright2 {
+	width:45%; 
+	min-height:280px; 
+	float:left; 
+	margin:0px 0px 0px 10px;
+	padding:5px;
+	background:#ffffff;
+	border:none;
+	color:#2888E5;
+}
+*/
+
+.cf7i_buttons {
+ 	float:left; 
+ 	width:515px;
+ 	overflow:hidden; 
+ 	border:none; 
+ 	margin:0px 0px 0px 0px;
+ 	text-align:center !important;
+ 	/*text-shadow:0.5px 0.5px 0.5px #000000;*/
+
+}
+
+.cf7i_buttons #install_cf, .cf7i_buttons #install_cf7  {
+	width:350px;
+	height:40px;
+	font:bold 1.3em Verdana;	
+}
 
 
+.cf7i_buttons a#install_cf {
+	background:#DEEFFF;
+	border:1px solid #BCC9D9;
+	color:#5B84B2;
+	display:inline-block;
+	margin:0px 0px 5px 0px;
+	text-align:center;
+	width:320px;
+	padding:10px 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+}
 
+.cf7i_buttons a#install_cf7 {
+	background:#E77F26;
+	color:#ffffff;
+	display:inline-block;
+	text-align:center;
+	width:320px;
+	padding:10px 0px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+}
 
- 
+.cf7i_buttons a#install_cf7:link, .cf7i_buttons a#install_cf:link{
+	text-decoration:none;
+}
 
+.cf7i_buttons a#install_cf7:hover, .cf7i_buttons a#install_cf:hover{
+	text-decoration:underline;
+}
 
+.cf7i_buttons a#install_cf7:visited, .cf7i_buttons a#install_cf:visited{
+	text-decoration:none;
+}
 
+#buttons_container {
+	width:100%; 
+	overflow:hidden; 
+	float:left; 
+	clear:right;
+	padding:10px 5px 20px 5px;
+}
+
+.cf7_download_link {
+	text-align: center;
+}
+
+.cf7_download_link a {
+	color:#2888E5;
+	text-decoration:none;
+}
+
+.cf7_download_link a:hover {
+	color:#2888E5;
+	text-decoration:underline;
+}
+
+.cf7_download_link a:visited {
+	color:#2888E5;
+	text-decoration:none;
+}
+
+/* styles for when CF7 is not installed/activated */
+/****************************************************/

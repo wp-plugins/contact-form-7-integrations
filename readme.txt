@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires at least: 3.5
 Tested up to: 3.8
 Donate link:
@@ -11,8 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 ### Contact Form 7 Integrations | ContactUs.com ###
->**Important:**
->This plugin is an **extension** to the popular [Contact Form 7 plugin](http://bit.ly/1dUEX9z "Go to Contact form 7 plugin"). If you **don't** currently use Contact Form 7, then this plugin is not for you. **If you need a complete contact form solution, you can consider using the** [**Contact Form Plugin**](http://bit.ly/1dPbnUD "Go to Contact Form by ContactUs.com plugin in wp.org"), also by ContactUs.com. 
 
 This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
 
@@ -186,6 +184,10 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
+= 1.3.2 =
+* UPGRADE: Improved installation process
+* *Launch date 28.01.2014*
+
 = 1.3.1 =
 * General Bug fixes
 * *Launch date 22.01.2014*
@@ -204,7 +206,6 @@ URL encodes data in API calls.
 Contact Form 7 dependency notice is now showing when plugin is deactivated and then reactivated. 
 Bug fixed when using more than one checkbox (array of fields) in form. 
 
-
 = 1.1 =
 Plugin prompts users to install CF7 if its not currently installed. 
 Added quick installation options for CF7.
@@ -220,6 +221,9 @@ This update added primary phone as a mappable field
 First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+New version available, update NOW!
 
 = 1.3.1 =
 New version available, update NOW!
