@@ -7,14 +7,14 @@
 /*
   Description: The CF7 Integrations API Methods
   Author: ContactUs.Com
-  Version: 1.3.1
+  Version: 1.3.3
   Author URI: http://www.contactus.com/
   License: GPLv2 or later
- */
+*/
 
 class cUsComAPI_Cloud {
     
-    protected $v = '1.3.1';
+    protected $v = '1.3.3';
 	protected $enviroment 	= 'http://api.contactus.com/api2.php';
 	protected $API_account 	= 'AC132f1ca7ff5040732b787564996a02b46cc4b58d';
 	protected $API_key 		= 'cd690cf4f450950e857b417710b656923cf4b579';
@@ -44,7 +44,7 @@ class cUsComAPI_Cloud {
 		   'Growing your email marketing list',
 		   'Providing customer service',
 		   'None, I just want a contact form on my site that sends to my email',
-		   'Other'   
+		   'Other'
 	);
     
     public function cUsComAPI_Cloud(){
@@ -72,7 +72,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -142,14 +142,14 @@ class cUsComAPI_Cloud {
             $strCURLOPT .= '&Auto_Activate=1';
             $strCURLOPT .= '&API_Credentials=1';
             $strCURLOPT .= '&Promotion_Code=CF7i';
-            $strCURLOPT .= '&Version=cf7integrations|1.3.1';
+            $strCURLOPT .= '&Version=cf7integrations|1.3.3';
             
             //echo $strCURLOPT; exit;
 			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, 
 			array(
 			  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-			  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+			  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 			));
 			
 			curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -183,7 +183,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -215,7 +215,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -256,7 +256,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER,
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -291,7 +291,7 @@ class cUsComAPI_Cloud {
         curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -327,7 +327,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -364,7 +364,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -400,7 +400,7 @@ class cUsComAPI_Cloud {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 
 		array(
 		  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-		  'X-ContactUs-Signature: CF7i|1.3.1|'.$this->getIP(),
+		  'X-ContactUs-Signature: CF7i|1.3.3|'.$this->getIP(),
 		));
 		
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -516,16 +516,7 @@ class cUsComAPI_Cloud {
 	 public function get_goals(){
 	 	return $this->CU_goals;
 	 }
-	 
-	 
-	 
-	 
-	 
-	 
-	
-	
-	
-	
+
 	
 }
 ?>

@@ -4,7 +4,7 @@
  * File to display the view in CF7
  * Created: 2013-11-12
  * Company: ContactUs.com
- * Updated: 20140127
+ * Updated: 20140206
  **/
 extract($data);
 // check if this plugin has been activated and validated with CU , otherwise don't show this error message

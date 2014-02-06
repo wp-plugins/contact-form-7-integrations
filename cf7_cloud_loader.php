@@ -3,7 +3,7 @@
  * Initialization Class for CF7 Integrations 
  * Company 		: ContactUs.com
  * Programmer	: ContactUs.com
- * Updated  	: 20140128
+ * Updated  	: 20140206
  **/
 require_once(dirname(__FILE__).'/models/interfaces/icf7_cloud_interface.php');
 require_once(dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php');
@@ -12,8 +12,8 @@ require_once(dirname( __FILE__ ) . '/includes/cusAPI.class.php');
 class CF7_cloud_loader extends CF7_cloud_interface {
 
 	// Don't change this private values unless you know what you are doing
-	private $cf7_cloud_db_version		= 	'1.3.2'; // cf7 cloud current DB version.
-	private $cf7_cloud_version			= 	'1.3.2';
+	private $cf7_cloud_db_version		= 	'1.3.3'; // cf7 cloud current DB version.
+	private $cf7_cloud_version			= 	'1.3.3';
 	private $API_url					=	'https://api.contactus.com/api2.php?';
 		
 	/*
@@ -65,7 +65,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		
 		// contact form 7 hooks/actions binding
 		add_action("wpcf7_before_send_mail", array(&$this, 'wpcf7_cloud_send_all'));
-		add_action( 'wpcf7_admin_after_mail', array(&$this, 'show_cf7cloud_metabox'));
+		add_action( 'wpcf7_admin_after_mail_2', array(&$this, 'show_cf7cloud_metabox'));
 		
 		$cf7_cloud_activated = get_option('cf7_cloud_database_active');
 
@@ -287,12 +287,13 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				wp_enqueue_script('other_info_scripts');
 				wp_enqueue_script('colorbox');
 				wp_enqueue_script('thickbox');
+				wp_enqueue_script('CU_chat', '//cdn.contactus.com/cdn/forms/NDg1OTA0ZjFjZA,,/contactus.js');
 			}
 		}
 			
 		
 		/**
-		 * Method in charte to load plugin specific styles
+		 * Method in charge to load plugin specific styles
 		 * @since version 1
 		 * @params none
 		 * @return none 
@@ -797,6 +798,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 				
 				// update this form to inactive
 				update_option( 'CU_cf7cloud_database_form_'.$_POST['post_ID'].'_active', 0 );
+				delete_option( 'CU_cf7cloud_database_data_'.$_POST['post_ID'] ); // deleted fields to avoid any conflict when mapping
 				
 			}
 				
@@ -816,6 +818,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		  
 		  // get the option for this specific form and see which fields to send to CU API
 		  $cf7cloud_data = get_option('CU_cf7cloud_database_data_'.$wpcf7->posted_data['_wpcf7']);
+		  
+		  //print_r( $cf7cloud_data ); exit;
 		  
 		  // get if this form is active to send data to admin.contactus.com
 		  $is_active = get_option('CU_cf7cloud_database_form_'.$wpcf7->posted_data['_wpcf7'].'_active');
@@ -874,7 +878,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 					curl_setopt($ch, CURLOPT_HTTPHEADER,
 					array(
 					  'X-ContactUs-Request-URL: '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],
-					  'X-ContactUs-Signature: CF7i|1.3.1|'.$cuapi->getIP(),
+					  'X-ContactUs-Signature: CF7i|1.3.3|'.$cuapi->getIP(),
 					));
 					
 					curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);

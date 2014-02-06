@@ -1,8 +1,8 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 Requires at least: 3.5
-Tested up to: 3.8
+Tested up to: 3.8.1
 Donate link:
 Tags: Contact Form 7, Contact 7 Database, Contact Form 7 Analytics, Contact Form 7 API, Contact Form Database, Contact Form 7 CRM, Contact Form 7 Extension, Contact Form 7 Integration, Contact Form, CRM, Database, cf7,
 License: GPLv2 or later
@@ -13,6 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ### Contact Form 7 Integrations | ContactUs.com ###
 
 This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
+
 
 This plugin extension is built for professional websites using Contact Form 7 and manages form submissions and leads generated from your Contact Form 7 forms. Contact Form 7 Integrations will:
 
@@ -127,6 +128,8 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 > * [Twitter](https://twitter.com/ContactUsCom)
 > * [Find tutorials on our Youtube channel](http://www.youtube.com/user/ContactUsCom)
 
+> **Please note:** This plugin from ContactUs.com includes JavaScript code used to connect the plugin to the ContactUs.com servers, when enabled. This JavaScript is used to connect to live chat support so that questions can be asked and answered directly from within the plugin.
+
 == Support ==
 
 You can find support on the ContactUs.com Help page at http://help.contactus.com. Specific instructions on how to implement Contact Form 7 Integrations.
@@ -184,6 +187,10 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
+= 1.3.3 =
+* JavaScript added to enable live chat support with ContactUs.com within the plugin.
+* (There may be an issue with compatibility with the latest version of Contact Form 7 that was released 2/4/2014 (version 3.7). We’re looking into it, and expect to have a new release in the next day or couple of days to address it.)
+
 = 1.3.2 =
 * UPGRADE: Improved installation process
 * *Launch date 28.01.2014*
@@ -221,6 +228,9 @@ This update added primary phone as a mappable field
 First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
+
+= 1.3.3 =
+New version available, update NOW!
 
 = 1.3.2 =
 New version available, update NOW!
