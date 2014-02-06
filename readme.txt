@@ -188,7 +188,7 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 == Changelog ==
 
 = 1.3.4 =
-* BUGFIX: Fixed compatibility issue with the latest release of Contact Form 7 (3.7)
+* BUGFIX: Fixed compatibility issue with the latest release of Contact Form 7 3.7
 * *Launch date 06.02.2014*
 
 = 1.3.3 =
