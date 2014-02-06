@@ -1,6 +1,6 @@
 === Contact Form 7 Integrations ===
 Contributors: contactus.com
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 Requires at least: 3.5
 Tested up to: 3.8.1
 Donate link:
@@ -187,6 +187,10 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 
 == Changelog ==
 
+= 1.3.4 =
+* BUGFIX: Fixed compatibility issue with the latest release of Contact Form 7 (3.7)
+* *Launch date 06.02.2014*
+
 = 1.3.3 =
 * JavaScript added to enable live chat support with ContactUs.com within the plugin.
 * (There may be an issue with compatibility with the latest version of Contact Form 7 that was released 2/4/2014 (version 3.7). We’re looking into it, and expect to have a new release in the next day or couple of days to address it.)
@@ -228,6 +232,9 @@ This update added primary phone as a mappable field
 First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
+
+= 1.3.4 =
+New version available, update NOW!
 
 = 1.3.3 =
 New version available, update NOW!

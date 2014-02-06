@@ -65,7 +65,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		
 		// contact form 7 hooks/actions binding
 		add_action("wpcf7_before_send_mail", array(&$this, 'wpcf7_cloud_send_all'));
-		add_action( 'wpcf7_admin_after_mail_2', array(&$this, 'show_cf7cloud_metabox'));
+		add_action("wpcf7_admin_after_mail", array(&$this, 'show_cf7cloud_metabox'));
 		
 		$cf7_cloud_activated = get_option('cf7_cloud_database_active');
 
@@ -73,7 +73,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 
 		// if user already signed/logged to ContactUs then show CF7 extension.
 		if( $cf7_cloud_activated == 1){
-		  add_action( 'wpcf7_admin_before_subsubsub', array(&$this, 'add_cf7cloud_meta') );
+		  add_action( 'wpcf7_admin_notices', array(&$this, 'add_cf7cloud_meta') );
 		}
 
 			add_filter( "plugin_action_links", array(&$this, 'cf7cloud_plugin_action_links'), 10, 4);
@@ -322,6 +322,8 @@ class CF7_cloud_loader extends CF7_cloud_interface {
 		 * return null
 		 **/
 		public function add_cf7cloud_meta (){
+			
+			global $wpcf7;
 
 			if ( wpcf7_admin_has_edit_cap() ) {
 			
