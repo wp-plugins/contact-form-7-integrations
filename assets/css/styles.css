@@ -56,6 +56,9 @@
 #CUintegrations_toright .premium_chat a{text-align: center;}
 #CUintegrations_toright .premium_chat a img{height: auto !important;max-height:241px;min-height:170px;}
 
+.advice {background: #faffd7;border: 1px solid #e8d09e;border-radius: 3px;color: #E94C27;font-size: 14px;padding: 10px 0 10px 20px;text-align: center;}
+.advice a{font-weight: bold;text-decoration: underline;color: #289ed6;}
+
 ul.steps{margin: 10px auto; padding: 10px;border-radius: 5px;background: #e8e8e8;}
 ul.steps li{padding-left: 25px;}
 ul.steps li p{font-size: 14px !important;}
@@ -142,7 +145,7 @@ table.table_steps {
 	float:left;
 	clear:right; 
 	background:#2888E5 url('../../assets/images/cf7integrations_header.png') no-repeat top left; 
-	margin:10px 0px 15px 0px;
+	margin:0px 0px 15px 0px;
 	padding:0px 20px 0px 0px;
 	text-align:right;
 	font-family: 'Open Sans';

@@ -151,10 +151,12 @@ Contact Form 7 Integrations by ContactUs.com is an add-on solution for ContactFo
 	            </td>
 	        </tr>
 	        <tr>
-	            <th></th>
-	            <td>
-	                <a href="https://www.contactus.com/client-login.php" target="_blank">I forgot my password</a>
-	            </td>
+	            <td colspan="2">
+                        <p class="advice">
+                            If you created an account by signing up with Facebook, you probably don’t know your password. Please click here to request a new one. <br/>
+                            <a href="http://www.contactus.com/login/#forgottenbox" target="_blank">I forgot my password</a>
+                        </p>
+                    </td>
 	        </tr>
 	    </table>
 	</form>
