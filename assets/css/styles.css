@@ -835,7 +835,7 @@ label.labelform {
 /* styles for when CF7 is not installed/activated */
 /****************************************************/
 
-.contaus_features{width: 100%;max-width: 900px;border-radius:10px;min-height:656px;position: relative;background: url("images/what_you_get_bk.jpg") top no-repeat;}
+.contaus_features{width: 100%;max-width: 900px;border-radius:10px;min-height:656px;position: relative;background: url("images/what_you_get_bk.jpg") top no-repeat;clear: both}
 .contaus_features .head_title{width: 100%;position: absolute;text-align: center;top: 0%;background:url("images/what_you_get_start_title_bk.png");padding: 20px 0 15px 0;border-radius: 10px 10px 0 0;border-bottom: 1px solid #D5D7FF;}
 .contaus_features .head_title h2{color: #fff !important;text-shadow: 0px 1px 1px #000;margin: 0 !important;}
 .contaus_features .road_features{width: 100%;min-height:656px;position: relative;background: url("images/what_you_get_road.png") top center no-repeat;background-size: 100% 100%;}
