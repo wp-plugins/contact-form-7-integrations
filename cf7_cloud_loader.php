@@ -883,11 +883,7 @@ class CF7_cloud_loader extends CF7_cloud_interface {
             curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 
             $strCURLOPT = trim($strCURLOPT . $CU_string);
-
-            //echo $strCURLOPT;
-            //exit;
-
-            // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+            
             curl_setopt($ch, CURLOPT_URL, $strCURLOPT);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
