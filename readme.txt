@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
+> ### COMPATIBLE WITH CONTACT FORM 7 v.3.9 ###
+
 ### Contact Form 7 Integrations | ContactUs.com ###
 
 This plugin Integrates Contact Form 7 with a cloud-based contact management database, CRM Tools, form conversion analytics and 3rd party software integrations. Supported and maintained by ContactUs.com
