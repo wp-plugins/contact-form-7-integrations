@@ -187,7 +187,7 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 == Changelog ==
 
 = 1.3.11 =
-* FIX: Security Vulnerabilities has been patched
+* FIX: Security Update
 * Now compatible with WordPress 4.0
 * *Launch date 18.09.2014*
 
@@ -264,6 +264,9 @@ This update added primary phone as a mappable field
 First version of Contact Form 7 Integrations available to WordPress community.
 
 == Upgrade Notice ==
+
+= 1.3.11 =
+New version available, update NOW!
 
 = 1.3.10 =
 New version available, Compatibility issue fixed, update NOW!
