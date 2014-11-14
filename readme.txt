@@ -190,7 +190,7 @@ You can find support on the ContactUs.com Help page at http://help.contactus.com
 * Improved notifications
 * *Launch date 13.11.2014*
 
-= 1.3.12 =
+= 1.3.11 =
 * FIX: Security Update
 * Now compatible with WordPress 4.0
 * *Launch date 18.09.2014*
