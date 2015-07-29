@@ -1,0 +1,893 @@
+/* styles releated to Contact Form 7 Cloud database */
+/* @import bla bla bla */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.first_step_clouddb {
+	width:100%;
+}
+
+
+#cf7cf7clouddiv {
+	overflow:hidden;
+}
+
+#cf7cloud_welcome {
+	width:100%;
+	min-height:338px;
+}
+
+#cf7cloud_welcome .CU_integrations {
+	color:#2888E5;
+	font-size:1.2em;
+	text-align:left;
+}
+
+.cf7cloud-active{
+    width: 100%;
+    clear: both;
+    float: left;
+    padding: 10px;
+}
+
+.cf7cloud_custom_fields_table {
+	width:100%;
+	margin:10px 0px 0px 0px;
+}
+
+
+#CUintegrations_toleft {
+	width:61% !important; 
+	float:left; 
+	background:#ffffff; 
+	display:block; 
+	overflow: hidden;
+	border:0px solid black;
+	padding:15px;
+	margin:0px 0px 0px 2px;
+}
+
+#CUintegrations_toright {
+	width:30%; 
+	min-height:280px; 
+	float:left; 
+	margin:0px 0px 0px 10px;
+	padding:10px;
+	background:#ffffff;
+	border:none;
+	color:#2888E5;
+}
+
+#CUintegrations_toright .premium_chat {width: 99%;height: auto !important;overflow: hidden;border-radius: 5px;margin:0 auto 15px auto;background:#ffc166;}
+#CUintegrations_toright .premium_chat a{text-align: center;}
+#CUintegrations_toright .premium_chat a img{height: auto !important;max-height:241px;min-height:170px;}
+
+.advice {background: #faffd7;border: 1px solid #e8d09e;border-radius: 3px;color: #E94C27;font-size: 14px;padding: 10px 0 10px 20px;text-align: center;}
+.advice a{font-weight: bold;text-decoration: underline;color: #289ed6;}
+
+ul.steps{margin: 10px auto; padding: 10px;border-radius: 5px;background: #e8e8e8;}
+ul.steps li{padding-left: 25px;}
+ul.steps li p{font-size: 14px !important;}
+
+#CUintegrations_toright > img {
+	margin:0px 20px 0px 0px;
+}
+
+
+#CUintegrations_toright .cf7integrations_support {
+	width:98% !important; 
+	min-height:200px !important;
+	border:none !important; 
+	float:left !important; 
+	clear:right !important; 
+	padding:0px 0px 0px 10px !important;
+	text-align:left !important;
+	margin:0px 0px 15px 0px !important;
+	display:block !important;
+}
+
+#CUintegrations_toright .cf7integrations_support a {
+	text-decoration:none;
+}
+
+#CUintegrations_toright .cf7integrations_support a:hover {
+	text-decoration:underline;
+}
+
+#CUintegrations_toright .cf7integrations_support a:visited, #CUintegrations_toright .cf7integrations_support a:focus {
+	text-decoration:none;
+}
+
+#CUintegrations_toright .cf7integrations_support h2 {
+	color:#000000 !important;
+	padding:0px 0px 8px 0px !important;
+	border-bottom:2px solid #eeeeee !important;	
+}
+
+
+table.table_steps {
+   width:100%;
+   margin:0px 0px 0px 0px;
+ }
+ 
+  table.table_steps td {
+   border:none;
+   padding:5px 5px 15px 5px;
+ }
+ 
+
+#CUintegrations_toright img {
+	float:left;
+}
+
+#cf7cloud_welcome .CU_integrations img {
+	vertical-align: middle;
+	margin:0px 5px 0px 0px
+}
+
+#cf7cloud_welcome .CU_integrations span {
+	display:inline-block;
+	min-width:150px;
+}
+
+.five_easy_steps {
+	font:bold 1.7em sans-serif;
+	color:#000000;
+}
+
+
+#container_cf7clouddatabase {
+	width:98%;
+	border:none;
+	padding:0px 0px 10px 10px;
+	background:#eeeeee;
+}
+
+
+.cf7cloud_logo {
+	width:97%; 
+	height:106px; 
+	float:left;
+	clear:right; 
+	background:#2888E5 url('../../assets/images/cf7integrations_header.png') no-repeat top left; 
+	margin:20px 0px 15px 0px;
+	padding:0px 20px 0px 0px;
+	text-align:right;
+	font-family: 'Open Sans';
+}
+
+
+.cf7cloud_logo h1 {
+	display:inline-block;
+	float:left;
+	color:#ffffff;
+	font-family:'Open Sans';
+	font-size:2.3em;
+	margin:25px 0px 0px 135px;
+	
+}
+
+
+.cf7cloud_logo img {
+	margin:40px 2px 0px 0px;
+	border:0px;	
+}
+
+.first_step_clouddb h1 {
+	margin:5px 0px 0px 0px;
+}
+
+
+.c_container {
+	background:yellow;
+}
+
+
+input[type="text"], input[type="password"], input[type="file"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="url"], select {
+    border-color: #DFDFDF;
+    width: 240px;
+    height:30px;
+}
+
+
+/* input placeholders color text */
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #c8bfbf;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #c8bfbf;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #c8bfbf;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #c8bfbf;
+}
+/**/
+
+input , select, textarea {
+	margin:0px 4px 0px 4px;
+}
+
+input, textarea {
+	background-color:#EEE;
+}
+
+
+input:focus, textarea:focus {
+	background-color:#FFF;
+}
+
+input:hover, textarea:hover {
+	border:1px solid #999;
+}
+
+.short_input {
+	width:45px; 
+	text-align:center;
+}
+
+.medium_input {
+	width:275px;
+}
+
+.light_medium_input {
+	width:240px;
+}
+
+.long_input {
+	width:350px;
+}
+
+.cbc_subtitles {
+	font:bold 1.2em Verdana, Arial;
+	text-align:left;
+	background:#FFFFFF;
+	color:#968787;
+	padding:8px;
+	border:1px solid #e8dede;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+}
+
+.small_desc {
+	font-size:0.7em; 
+	font-family:Verdana, Arial;
+}
+
+/* languages checkboxes styles */
+input[name^=lang]{
+	margin:0px 20px 0px 0px;
+}
+
+table#sugeridos thead {
+	background:#CCCCCC;
+	text-transform:capitalize;
+	color:#ffffff;
+}
+s
+#sugeridos {
+	margin:5px 0px 20px 0px;
+	border-bottom:1px solid #cccccc;
+}
+
+.to_left {
+	text-align:left;
+}
+
+.to_left input[type=checkbox] {
+	margin:0px 5px 0px 15px;
+}
+
+.form-table td input[type=checkbox] {
+	vertical-align:middle;
+	margin:0px 5px 0px 15px;
+}
+
+#recursos_adicionales {
+	display:none;
+}
+
+div.message {
+    background-color: #FFFFE0;
+    border-color: #E6DB55;
+    padding: 4px;
+}
+
+#cbc_requisiciones_list {
+	width:99%; 
+	min-height:400px; 
+	float:left;
+	clear:right; 
+	background:transparent; 
+	margin:50px 0px 15px 0px;
+}
+
+#detalle_experiencia {
+	width:565px;
+	height:300px;
+}
+
+#attributes_all {
+	cursor:pointer;
+	color:#000000;
+}
+
+#attributes_all:hover {
+	cursor:pointer;
+	color:#000000;
+	text-decoration:underline;
+}
+
+#attributes_none {
+	cursor:pointer;
+	color:#000000;
+}
+
+#attributes_none:hover {
+	cursor:pointer;
+	color:#000000;
+	text-decoration:underline;
+}
+
+.show_files {
+	display:block; text-align:center
+}
+
+.hide_files {
+	display:none; text-align:center
+}
+
+.req_submit_button {
+	text-align:center;
+}
+
+/*************************************/
+/* STYLES FOR THE CF7 CLOUD DATABASE */
+#cf7_cloud_table {
+			width:685px;
+			/*display:none;*/
+		}
+
+		#cf7_cloud_table td:nth-child(1) {
+		  	width:250px;
+		  	text-align: left;
+		}
+
+		#cf7_cloud_table td:nth-child(2) {
+		  	text-align: left;
+		}
+
+		#cf7_cloud_table input[type=text], #cf7_cloud_table input[type=email], select {
+			width: 250px;
+			height: 35px;
+			-moz-border-radius:5px;
+			-o-border-radius:5px;
+			-webkit-border-radius:5px;
+			border-radius:5px;
+			margin:3px 40px 3px 0px;
+		}
+
+		#cf7_cloud_table select {
+			width: 250px;
+			height: 33px;
+			-moz-border-radius:5px;
+			-o-border-radius:5px;
+			-webkit-border-radius:5px;
+			border-radius:5px;
+			margin:3px 0px 3px 0px;
+			padding: 5px 5px 5px 5px;
+		}
+
+		#cf7_cloud_table input[type=button] {
+		  height:35px;
+		  width:120px;
+		  margin: 12px 0px 0px 15px;
+		  padding: 10px 15px 10px 15px;
+		  -moz-border-radius:5px;
+		  -o-border-radius:5px;
+		  -webkit-border-radius:5px;
+		  border-radius:5px;
+		}
+
+		#cf7cloud-formdata {
+			display:none; 
+			float:left; 
+			clear:right; 
+			background:#ffffff; 
+			border:1px solid #eeeeee; 
+			min-height:525px; 
+			width:60%; 
+			padding:10px; 
+			margin:0px 0px 5px 1px;
+			border-radius:5px;
+			overflow:hidden;
+		}
+
+		#cf7_cloud_table h3, #cf7_cloud_table h2, #cf7_cloud_table h4 {
+			width:100%;
+			text-transform: capitalize;
+		}
+
+		#cf7cloud_video {
+			float:right; 
+			width:35%; 
+			min-height:300px;
+			overflow:hidden;
+			
+		}
+		
+		#cf7cloud_video input[type="button"] {
+			margin:5px 0px 5px 0px;
+		}
+
+		
+		input[type=text]:hover:after{
+			border: 1px solid #fc0;
+			padding: 3px 6px;
+			background: #fffea1;
+			content: attr(data-title);
+			position: absolute;
+			right: -40px;
+			top: -26px;
+		}
+		
+		span.tr_delete {
+			color:red;
+			display:inline-block;
+			margin:13px 0px 0px 0px;
+			cursor:pointer;
+		}
+		
+		img#loading_mapper {
+			display:none;
+		}
+
+#createpostform {
+	background:transparent;
+	clear:both;
+	margin:20px 0px;
+    padding: 30px;
+    border-top: 1px solid #ccc;
+	display:none;
+
+}
+
+#createpostform a {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    width: 40%;
+}
+
+#createpostform table {
+	display:block;
+	float:left;
+}
+
+
+.btn_clouddb_yes {
+	padding:10px 10px;
+	margin:0px 10px 0px 0px;
+	background:transparent url('../../assets/images/cUsCF7_yes_button.png') no-repeat top left; 
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+	width:193px;
+	height:38px;
+}
+
+.btn_clouddb_yes span { 
+	display:inline-block;
+	margin: 0px 25px 0px -15px;
+	font-size:14px;
+}
+
+
+.btn_clouddb_no span { 
+	display:inline-block;
+	margin: 0px 25px 0px -10px;
+	font-size:14px;
+}
+
+
+/*
+.btn_clouddb_yes:hover {
+	padding:10px 10px;
+	margin:0px 10px 0px 0px;
+	background:#D95711;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+}
+*/
+
+.btn_clouddb_no {
+	padding:10px 10px;
+	margin:0px 10px 0px 0px;
+	background:transparent url('../../assets/images/cUsCF7_no_button.png') no-repeat top left; 
+	width:193px;
+	height:38px;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+}
+
+/*
+.btn_clouddb_no:hover {
+	padding:10px 10px;
+	margin:0px 10px 0px 0px;
+	background:#1A8ABB;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+}
+
+.btn_clouddb_no:visited {
+	padding:10px 10px;
+	margin:0px 10px 0px 0px;
+	background:#25A9E1;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+}
+*/
+
+.action_orange_button {
+	padding:10px 20px 10px 20px;
+	margin:-25px 10px 0px 0px;
+	background:#EC661C;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+	text-decoration:none;
+	z-index: 100;
+	position:relative;
+}
+
+.action_orange_button_2 {
+	padding:5px 10px;
+	background:#EC661C;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+	text-decoration:none;
+	z-index: 100;
+}
+.action_orange_button_2:hover {
+	background:#D95711;
+	color:#ffffff;
+}
+
+.action_orange_button_spe {
+	padding:10px 20px 10px 20px;
+	margin:10px 10px 0px 0px;
+	background:#EC661C;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+	text-decoration:none;
+	z-index: 100;
+	position:relative;
+}
+
+
+.action_orange_button:hover {
+	padding:10px 20px 10px 20px;
+	margin:-25px 10px 0px 0px;
+	background:#D95711;
+	-moz-border-radius:7px;
+	-o-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	color:#ffffff;
+	font-weight:bold;
+	border:0px;
+	cursor:pointer;
+	text-decoration:none;
+}
+
+
+label.labelform {
+	color:#000000;
+}
+
+.form-table td:nth-child(1) {
+  	width:150px;
+  	text-align: right;
+}
+
+.form-table td:nth-child(2) {
+  	text-align: left;
+}
+
+.form-table th, .form-wrap label {
+    color:#052545;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width:170px;
+}
+
+.form-table label{color:#0782d3;font-weight:bold;}
+
+ .steps h3 span{
+ 	border-radius: 30px 30px 30px 30px;
+ 	background:#fab621;
+ 	display: inline-block;
+ 	height:25px;
+ 	width:25px;
+ 	text-align:center;
+ 	font-weight:bold;
+ 	color:#fff;
+ 	margin:0 20px;
+ 	line-height:30px;
+ 	font-size:18px;
+ 	}
+ 
+ .step1,
+ .step2_,
+ .step3,
+ .step4,
+ .step5,
+ .login_form,
+ .advice_notice,
+ .notice,
+ .temp {display:none;}
+ 
+ .advice_notice {
+    border: 2px solid #FF0000;
+    display: block;
+    margin: 17px 0 0;
+    padding: 5px 5px;
+    display:none;
+ }
+ 
+ 
+  .advice_notice {
+    border: 2px solid #FF0000;
+    display: block;
+    margin: 17px 0 0;
+    padding: 10px 5px;
+    display:none;
+ }
+ 
+ 
+ .no_post_form {
+ 	display:block; 
+ 	margin:-20px 0px 15px -8px;
+ 	padding:5px 5px 0px 5px;
+ 	border: 2px solid #FF0000;
+ }
+ 
+
+ .notice_visible {display:block;}
+ 
+ #success_process_login {
+ 	display:none;
+ }
+ 
+ .cf7_cloud_errors {
+ 	width:98%; 
+ 	border:2px solid red; 
+ 	padding:9px 5px 9px 5px; 
+ 	background:white; 
+ 	color:red; 
+ 	margin:14px 0px;
+ }
+ 
+ .CF7cloud_introduction_video{
+ 	float:right; background:transparent; width:370px; height:300px; margin:25px 40px 0px 10px;
+ }
+ 
+ cUsCloud_yes {
+	
+ }
+ 
+ 
+ 
+ /****************************************************/
+/* styles for when CF7 is not installed/activated */
+
+#CUintegrations_toleft_wide {
+	width:99%; 
+	float:left; 
+	background:#ffffff; 
+	display:block; 
+	overflow: hidden;
+	border:none;
+	padding:0px 5px 5px 10px;
+	margin:-15px 0px 0px -10px;
+	z-index:99;
+	position:relative;
+}
+
+/*#CUintegrations_toleft_wide {
+	margin:-20px 0px 10px 50px;
+}*/
+	
+	
+
+#CUintegrations_toleft_wide h1 {
+	color:#07267E;
+}
+
+#CUintegrations_toleft_wide img{
+	vertical-align:middle; margin:0px 10px 0px 0px;
+}
+
+#CUintegrations_toleft_wide p {
+	font-size:1.2em;
+	line-height:23px;
+}
+
+/*
+#CUintegrations_toright2 {
+	width:45%; 
+	min-height:280px; 
+	float:left; 
+	margin:0px 0px 0px 10px;
+	padding:5px;
+	background:#ffffff;
+	border:none;
+	color:#2888E5;
+}
+*/
+
+.cf7i_buttons {
+ 	float:left; 
+ 	width:515px;
+ 	overflow:hidden; 
+ 	border:none; 
+ 	margin:0px 0px 0px 0px;
+ 	text-align:center !important;
+ 	/*text-shadow:0.5px 0.5px 0.5px #000000;*/
+
+}
+
+.cf7i_buttons #install_cf, .cf7i_buttons #install_cf7  {
+	width:350px;
+	height:40px;
+	font:bold 1.3em Verdana;	
+}
+
+
+.cf7i_buttons a#install_cf {
+	background:#DEEFFF;
+	border:1px solid #BCC9D9;
+	color:#5B84B2;
+	display:inline-block;
+	margin:0px 0px 5px 0px;
+	text-align:center;
+	width:320px;
+	padding:10px 10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+}
+
+.cf7i_buttons a#install_cf7 {
+	background:#E77F26;
+	color:#ffffff;
+	display:inline-block;
+	text-align:center;
+	width:320px;
+	padding:10px 0px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+}
+
+.cf7i_buttons a#install_cf7:link, .cf7i_buttons a#install_cf:link{
+	text-decoration:none;
+}
+
+.cf7i_buttons a#install_cf7:hover, .cf7i_buttons a#install_cf:hover{
+	text-decoration:underline;
+}
+
+.cf7i_buttons a#install_cf7:visited, .cf7i_buttons a#install_cf:visited{
+	text-decoration:none;
+}
+
+#buttons_container {
+	width:100%; 
+	overflow:hidden; 
+	float:left; 
+	clear:right;
+	padding:10px 5px 20px 5px;
+}
+
+.cf7_download_link {
+	text-align: center;
+}
+
+.cf7_download_link a {
+	color:#2888E5;
+	text-decoration:none;
+}
+
+.cf7_download_link a:hover {
+	color:#2888E5;
+	text-decoration:underline;
+}
+
+.cf7_download_link a:visited {
+	color:#2888E5;
+	text-decoration:none;
+}
+
+/*CF7 HACKS*/
+
+/*fix shortcode input width*/
+span.shortcode input#wpcf7-shortcode {
+    width: 90%; 
+}
+
+/* styles for when CF7 is not installed/activated */
+/****************************************************/
+
+.contaus_features{width: 100%;max-width: 900px;border-radius:10px;min-height:656px;position: relative;background: url("images/what_you_get_bk.jpg") top no-repeat;clear: both}
+.contaus_features .head_title{width: 100%;position: absolute;text-align: center;top: 0%;background:url("images/what_you_get_start_title_bk.png");padding: 20px 0 15px 0;border-radius: 10px 10px 0 0;border-bottom: 1px solid #D5D7FF;}
+.contaus_features .head_title h2{color: #fff !important;text-shadow: 0px 1px 1px #000;margin: 0 !important;}
+.contaus_features .road_features{width: 100%;min-height:656px;position: relative;background: url("images/what_you_get_road.png") top center no-repeat;background-size: 100% 100%;}
+.contaus_features ._row{width: 100% !important;position: relative;height: 108px;overflow: visible;clear: both;}
+.contaus_features ._row > ._col{width: 25% !important;position: relative;height: 108px;overflow: visible;float: left;margin: 0;padding: 0;}
+.contaus_features a.feature{display: block; width: 90%;height: 65px;position: absolute;background-size: 100%;z-index: 99;}
+
+.contaus_features a.arrow_start{background: url("images/what_you_get_start.png") top no-repeat;height: 84px;bottom: -37px;right: -12px;}
+.contaus_features a.contacts{background: url("images/what_you_get_start_01_contacts.png") top no-repeat;background-size: 100% auto;bottom: -30px;}
+.contaus_features a.contactform{background: url("images/what_you_get_start_02_contactform.png") top no-repeat;background-size: 100% auto;bottom: -30px;}
+.contaus_features a.wp{background: url("images/what_you_get_start_03_wp.png") top no-repeat;background-size: 100% auto;bottom: -30px;}
+
+.contaus_features a.tracking{background: url("images/what_you_get_start_04_call.png") top no-repeat;background-size: 100% auto;bottom: -10px;right: 5px;}
+
+.contaus_features a.chat{background: url("images/what_you_get_start_08_chat.png") top no-repeat;background-size: 100% auto;width: 112%;bottom: -66px;left: 0px;height: 129px;}
+.contaus_features a._3rd{background: url("images/what_you_get_start_07_3rd.png") top no-repeat;background-size: 100% auto;bottom: -30px;left: 25px;}
+.contaus_features a.ab{background: url("images/what_you_get_start_06_ab.png") top no-repeat;background-size: 100% auto;bottom: -30px;right: 5px;}
+.contaus_features a.leadalerts{background: url("images/what_you_get_start_05_alerts.png") top no-repeat;background-size: 100% auto;bottom: 5px;right: 5px;}
+
+.contaus_features a.loadforms{background: url("images/what_you_get_start_09_loadforms.png") top no-repeat;background-size: 100% auto;bottom: -30px;right: 5px;}
+
+.contaus_features a.analytics{background: url("images/what_you_get_start_10_analytics.png") top no-repeat;background-size: 100% auto;bottom: -30px;left: 30%;}
+.contaus_features a.customizable{background: url("images/what_you_get_start_11_customizable.png") top no-repeat;background-size: 100% auto;bottom: -40px;right: -50px;}
+
+.contaus_features a.cloud{background: url("images/what_you_get_start_cloud.png") top no-repeat;background-size: 100% auto;bottom: -25px;right: 0px;width: 200%;height:324px;}
